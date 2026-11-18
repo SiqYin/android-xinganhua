@@ -59,8 +59,8 @@ install(FILES
         )
 
 # xinganhua (西安话·关中片) scheme files
-# 只用三只文件：schema + 主词典（import_tables 指向字音表）+ 字音表
-# 反查依赖 luna_pinyin / stroke，两只上游方案已经随插件装好，无需另外加。
+# 只用三个文件：schema + 主词典（import_tables 指向字音表）+ 字音表
+# 反查依赖 luna_pinyin / stroke，两个上游方案已经随插件装好，无需另外加。
 install(FILES
         "rime-xinganhua/xinganhua.schema.yaml"
         "rime-xinganhua/xinganhua.dict.yaml"

@@ -4,14 +4,14 @@
 
 ## 本仓库的用途（西安话直装包）
 
-本仓库是 [fcitx5-android](https://github.com/fcitx5-android/fcitx5-android)（小企鹅输入法）的自定义版本，为「西安话 Rime 输入方案」做安卓直装包：装上本体搭 Rime 插件就能直接打西安话，不用自己往手机里拷方案。
+本仓库是 [fcitx5-android](https://github.com/fcitx5-android/fcitx5-android)（小企鹅输入法）的自定义版本，为「西安话 Rime 输入方案」做安卓直装包：装上本体和 Rime 插件就能直接打西安话，不用自己往手机里拷方案。
 
-- **内置方案**：`plugin/rime/src/main/cpp/rime-xinganhua/`，把 `xinganhua.schema.yaml`、`xinganhua.dict.yaml`、`xinganhua.word.dict.yaml` 三只文件随插件装到 `rime-data`，并摆在 `default.yaml` 的 `schema_list` 头一只。
+- **内置方案**：`plugin/rime/src/main/cpp/rime-xinganhua/`，把 `xinganhua.schema.yaml`、`xinganhua.dict.yaml`、`xinganhua.word.dict.yaml` 三个文件随插件装到 `rime-data`，并摆在 `default.yaml` 的 `schema_list` 第一项。
 - **方案源库**：[SiqYin/xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa)（只读，不在本仓库改方案内容）。
-- **只出两类包**：小企鹅输入法本体 + Rime 插件，各 4 个 ABI，共 8 只 APK；其余插件不打包。
-- **固定签名**：本体搭插件用同一只密钥（CI secrets），插件才会被本体认下来。
+- **只出两类包**：小企鹅输入法本体 + Rime 插件，各 4 个 ABI，共 8 个 APK；其余插件不打包。
+- **固定签名**：本体和插件用同一把密钥（CI secrets），插件才会被本体认下来。
 
-**安装**：从 [Releases](https://github.com/SiqYin/android-xinganhua/releases) 或 Actions 的 `Build Custom APK` 产物里，按机器 ABI 各取本体与 Rime 插件（一般手机拣 `arm64-v8a`），先装本体再装插件，然后在系统输入法管理里启用小企鹅输入法、添加「中州韵」，首次使用点一下「部署」。
+**安装**：从 [Releases](https://github.com/SiqYin/android-xinganhua/releases) 或 Actions 的 `Build Custom APK` 产物里，按机器 ABI 各取本体与 Rime 插件（一般手机选 `arm64-v8a`），先装本体再装插件，然后在系统输入法管理里启用小企鹅输入法、添加「中州韵」，首次使用点一下「部署」。
 
 > 本包与官方版同包名（`org.fcitx.fcitx5.android`）但签名不同，装之前请先卸掉机器上的官方版/其它改版。
 
