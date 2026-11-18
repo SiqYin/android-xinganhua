@@ -42,7 +42,7 @@ jobs:
           cat > notes.md <<'NOTES'
           ## fcitx5-android 西安话版（内置西安话 Rime 方案）
 
-          基于上游 [fcitx5-android](https://github.com/fcitx5-android/fcitx5-android)（小企鹅输入法）的自定义版本，做法同 [吴语直装包](https://github.com/SiqYin/fcitx5-android)。主要改动：
+          基于上游 [fcitx5-android](https://github.com/fcitx5-android/fcitx5-android)（小企鹅输入法）的自定义版本，做法同[吴语直装包](https://github.com/SiqYin/fcitx5-wugniu)。主要改动：
 
           - **内置西安话方案**：Rime 插件加入 `xinganhua`（西安话·关中片）方案与字音表，装上即可用，不必自己导入
           - **固定签名**：本体和 Rime 插件共用同一把发布密钥，插件能被本体正常识别
