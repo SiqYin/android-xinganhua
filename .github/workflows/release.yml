@@ -1,0 +1,65 @@
+name: Publish Release
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  release:
+    runs-on: ubuntu-24.04
+    steps:
+      # 只认这个 commit 自己的成功构建。上游写法在找不到时会退回「最近一次成功构建」，
+      # 那样没构建完就打标签会把旧 APK 发出去，这里改成找不到就报错中断。
+      - name: Find green build for this commit
+        id: run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          SHA="${{ github.sha }}"
+          RUN=$(gh run list -R "${{ github.repository }}" --workflow build-custom.yml --status success --limit 30 --json databaseId,headSha \
+            | jq -r --arg sha "$SHA" '[.[] | select(.headSha == $sha)][0].databaseId // empty')
+          if [ -z "$RUN" ]; then
+            echo "::error::该 commit（$SHA）还没有成功的 Build Custom APK 构建，先等构建变绿再打标签。"
+            exit 1
+          fi
+          echo "run=$RUN" >> "$GITHUB_OUTPUT"
+          echo "Using run: $RUN"
+
+      - name: Download artifacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh run download "${{ steps.run.outputs.run }}" -R "${{ github.repository }}" -D artifacts
+
+      - name: Create release and upload APKs
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${{ github.ref_name }}"
+          cat > notes.md <<'NOTES'
+          ## fcitx5-android 西安话版（内置西安话 Rime 方案）
+
+          基于上游 [fcitx5-android](https://github.com/fcitx5-android/fcitx5-android)（小企鹅输入法）的自定义版本，做法同 [吴语直装包](https://github.com/SiqYin/fcitx5-android)。主要改动：
+
+          - **内置西安话方案**：Rime 插件加入 `xinganhua`（西安话·关中片）方案与字音表，装上即可用，不必自己导入
+          - **固定签名**：本体搭 Rime 插件共用同一只发布密钥，插件能被本体正常识别
+          - **CI 精简**：正式发布只有本体搭 Rime 插件两类 APK，其余插件不打包
+
+          方案本体（schema / 词典 / 转写工具）见 [SiqYin/xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa)。
+
+          ## 安装
+
+          1. 下载与本机 ABI 对应的两只 APK（一般手机选 **arm64-v8a**）：
+             - `app-<abi>-release.apk`（小企鹅输入法本体）
+             - `org.fcitx.fcitx5.android.plugin.rime-<abi>-release.apk`（Rime 插件）
+          2. 先装本体，再装插件；
+          3. 在系统输入法管理里启用小企鹅输入法，进设置添加「中州韵」；
+          4. 首次使用点一下「部署」，等 `xinganhua` 方案编译完即可打字。
+
+          > 本包与官方版/吴语版同包名（`org.fcitx.fcitx5.android`）但签名不同，装之前请先卸掉机器上的其它版本，否则会提示「应用未安装」。
+          NOTES
+          gh release create "$TAG" -R "${{ github.repository }}" --title "fcitx5-android 西安话版 $TAG" --notes-file notes.md
+          find artifacts -name "*.apk" -print0 | xargs -0 gh release upload "$TAG" -R "${{ github.repository }}" --clobber

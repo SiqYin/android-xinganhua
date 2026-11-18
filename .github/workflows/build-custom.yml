@@ -1,0 +1,108 @@
+name: Build Custom APK
+
+on:
+  push:
+    branches: [ "master", "main", "build/*" ]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Fetch source code
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+          submodules: recursive
+
+      - name: Setup Java
+        uses: actions/setup-java@v5
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Setup Android environment
+        uses: android-actions/setup-android@v4
+        with:
+          packages: cmake;3.31.6
+
+      - name: Install system dependencies
+        run: |
+          sudo apt update
+          sudo apt install extra-cmake-modules gettext
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v5
+
+      # 固定签名：本体与 Rime 插件共用同一把钥匙，避免签名不一致导致插件装不上/识别不到
+      - name: Build Release APK
+        shell: bash
+        env:
+          SIGN_KEY_BASE64: ${{ secrets.SIGN_KEY_BASE64 }}
+          SIGN_KEY_PWD: ${{ secrets.SIGN_KEY_PWD }}
+          SIGN_KEY_ALIAS: ${{ secrets.SIGN_KEY_ALIAS }}
+        run: |
+          set -o pipefail
+          if [ -z "$SIGN_KEY_BASE64" ]; then
+            echo "::error::SIGN_KEY_BASE64 未配置，release 产物将无法签名"
+            exit 1
+          fi
+          ./gradlew :app:assembleRelease 2>&1 | tee build-main.log
+          # 正式版只构建并发布 Rime 插件，其余插件不再打包
+          ./gradlew :plugin:rime:assembleRelease 2>&1 | tee build-plugins.log
+
+      - name: Verify APKs are signed
+        shell: bash
+        run: |
+          set -e
+          UNSIGNED=$(find app/build/outputs/apk plugin -name "*-unsigned.apk" 2>/dev/null | head -5)
+          if [ -n "$UNSIGNED" ]; then
+            echo "::error::发现未签名产物：$UNSIGNED"
+            exit 1
+          fi
+          echo "已签名 APK 数量：$(find app/build/outputs/apk/release plugin -name '*.apk' 2>/dev/null | wc -l)"
+
+      - name: Upload main APK
+        uses: actions/upload-artifact@v6
+        with:
+          name: fcitx5-android-custom
+          path: app/build/outputs/apk/release/
+
+      - name: Pack plugins
+        shell: bash
+        run: |
+          mkdir -p plugins-to-upload
+          for i in $(ls plugin)
+          do
+            if [ -d "plugin/${i}" ]
+            then
+              mv "plugin/${i}/build/outputs/apk/release" "plugins-to-upload/${i}" 2>/dev/null || true
+            fi
+          done
+
+      - name: Upload plugins
+        uses: actions/upload-artifact@v6
+        with:
+          name: fcitx5-plugins
+          path: plugins-to-upload
+
+      - name: Save failure log to ci-logs branch
+        if: failure()
+        shell: bash
+        run: |
+          mkdir -p /tmp/cilog
+          tail -c 300000 build-main.log > /tmp/cilog/build-main.log 2>/dev/null || true
+          tail -c 300000 build-plugins.log > /tmp/cilog/build-plugins.log 2>/dev/null || true
+          cd /tmp/cilog
+          if [ ! -s build-main.log ] && [ ! -s build-plugins.log ]; then exit 0; fi
+          git init -q
+          git config user.email "ci-bot@users.noreply.github.com"
+          git config user.name "ci-log-bot"
+          git remote add origin "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}.git"
+          git checkout -q -B ci-logs
+          git add -A
+          git commit -q -m "ci failure log for ${{ github.sha }}" || true
+          git push -q -f origin ci-logs
