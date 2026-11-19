@@ -3,6 +3,12 @@ name: Build Custom APK
 on:
   push:
     branches: [ "master", "main", "build/*" ]
+    # 只改文档/配图时不必重打 APK
+    paths-ignore:
+      - "**.md"
+      - "figures/**"
+      - "LICENSE"
+      - ".gitignore"
   workflow_dispatch:
 
 permissions:
