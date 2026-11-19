@@ -2,11 +2,11 @@
 
 # 西安方言入力法 · Android 直装版 · android-xinganhua
 
-> 西安方言入力法を Android の直装（すぐ使える）パッケージにしました。**Fcitx5 for Android**（小企鹅输入法）の**本体**と **Rime プラグイン**を入れ、「中州韵」から「西安話」を選べば、西安方言ピンインでそのまま打てます。方案ファイルを自分で端末に読み込む必要はありません。
+> 西安方言入力法を Android の直装（すぐ使える）パッケージにしました。**Fcitx5 for Android**（小企鹅输入法）の**本体**と **Rime プラグイン**を入れ、「中州韵」から「西安話城區音」または「西安話南郊音」を選べば、西安方言ピンインでそのまま打てます。方案ファイルを自分で端末に読み込む必要はありません。
 
 - **対応**：Android 6.0 以降（minSdk 23）。ABI は `arm64-v8a` / `armeabi-v7a` / `x86` / `x86_64` の 4 種
 - **公開物**：APK 8 個 = 本体 × 4 ABI ＋ Rime プラグイン × 4 ABI。すべて同じ鍵で署名
-- **内蔵方案**：`xinganhua`（西安方言・関中片）。プラグインが `rime-data` に入れ、方案メニューの先頭に置く
+- **内蔵方案**：`chengqyu`（西安方言城区音）、`nanjiao`（西安方言南郊音）。プラグインが `rime-data` に入れ、方案メニューの先頭に置く
 - **パッケージ名**：`org.fcitx.fcitx5.android`（公式版と同じ、署名は別。先に公式版を削除）
 - **方案の原本**：[xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa)（参照のみ。本リポジトリでは方案を変更しない）
 - **四言語**：簡体中文 / 繁體中文 / English / 日本語。上のリンクで切り替え。内容は四版とも同じで、簡体版を正とします
@@ -32,17 +32,17 @@
 
 スマートフォンのこのパッケージも、パソコンの Rime も、二つの Web リポジトリも、すべて同じ**西安方言ピンイン**を使います。1 音節は「声母＋韻母＋声調番号」で、たとえば `ba1` 巴、`bfeng4` 中、`jyuen1` 軍：
 
-- **声母 26 個**（零声母を含む）：`b p m f v bf pf d t n l z c s j q x zh ch sh r g k h ng`
-- **韻母 40 個**：開 15 ／ 斉 10 ／ 合 9 ／ 撮 6
+- **声母**：両系統に共通する 24 個（零声母を含む）＋城区音だけの `bf`・`pf`、計 26 個：`b p m f v bf pf d t n l z c s j q x zh ch sh r g k h ng`
+- **韻母**：共通する 38 個＋城区音だけの `uu`・`iai`、計 40 個：開 15 ／ 斉 10 ／ 合 9 ／ 撮 6
 - **四声**：陰平 21、陽平 24、上声 53、去声 44。入声はすでにこの四声に統合
 - **声調番号は音節の直後**に、空白を入れずに置く：`bfeng4` 中、`jyuen1` 軍
 - **音節の境界は撇号（アポストロフィ）**：`xi'ngan1` 西安（そのまま書くと xin 心 ＋ gan 干 に切られる）
 
 以下の四枚で方案の全体が分かります。ほかの二つのリポジトリと同じ図を言語ごとに用意したもので、内容は各言語版で一致しています：
 
-![西安方言の声母 26](figures/onsets.ja.svg)
+![西安方言の声母（城区音 26；南郊音は bf・pf なし）](figures/onsets.ja.svg)
 
-![西安方言の韻母 40](figures/rhymes.ja.svg)
+![西安方言の韻母（城区音 40；南郊音は uu・iai なし）](figures/rhymes.ja.svg)
 
 ![西安方言の四声](figures/tones.ja.svg)
 
@@ -62,7 +62,7 @@ Fcitx5 for Android は入力法の**枠組み**です。キーボード・候補
 
 ここでは入力法を書き直しません。やることは三つだけ：
 
-1. **方案をプラグインに入れる**：`xinganhua` の三つのファイルを Rime プラグインに同梱して `rime-data` へ入れ、`default.yaml` の `schema_list` の先頭に置く
+1. **方案をプラグインに入れる**：`chengqyu`・`nanjiao` の六つのファイルを Rime プラグインに同梱して `rime-data` へ入れ、`default.yaml` の `schema_list` の先頭に置く
 2. **署名を揃える**：本体とプラグインを同じ公開鍵で署名する。揃っていないと本体がプラグインを認識しない
 3. **二つを配る**：ビルドするのは本体と Rime プラグインだけ、ABI ごとに 4 つずつ。この導入説明を添えて公開する
 
@@ -97,7 +97,7 @@ ABI の選び方：現在のスマートフォンはほぼ **`arm64-v8a`**。古
 
 設定 →「言語と入力」→「画面キーボード / キーボードの管理」→ **Fcitx5** をオン → 入力法の選択で Fcitx5 に切り替え。メーカーによって経路が違うので、「入力法」で検索すると早いです。
 
-### 3.5「中州韵」を追加し、「西安話」を選ぶ
+### 3.5「中州韵」を追加し、「西安話城區音」または「西安話南郊音」を選ぶ
 
 1. Fcitx5 for Android のアプリを開き、「入力法」の画面で「＋」を押して **中州韵（Rime）** を追加
 2. Rime の設定で **デプロイ**（Deploy）を一度押す。プラグインが `rime-data` の方案をコンパイルします
@@ -109,7 +109,7 @@ ABI の選び方：現在のスマートフォンはほぼ **`arm64-v8a`**。古
 | 症状 | まず見る |
 |---|---|
 | 入力法の一覧に「中州韵」がない | プラグイン未導入、または別 ABI を入れた。同じ ABI の Rime プラグインを追加 |
-| 「中州韵」はあるが「西安話」がない | デプロイを押していない、または失敗。Rime の設定で再デプロイ |
+| 「中州韵」はあるが「西安話城區音」がない | デプロイを押していない、または失敗。Rime の設定で再デプロイ |
 | 英語は打てるが中国語が出ない | キーボードが Rime になっていない（スペースキー横の方案名を確認） |
 | 逆引き（`q` ＋普通話ピンイン、`x` ＋画数）が使えない | `luna_pinyin` / `stroke` が入っていない。同じ版の Rime プラグインを入れ直す |
 
@@ -120,16 +120,19 @@ ABI の選び方：現在のスマートフォンはほぼ **`arm64-v8a`**。古
 ## 4. 方案の組み込み方
 
 ```
-plugin/rime/src/main/cpp/rime-xinganhua/   方案の三点セット（xinganhua-fuvufa からコピー）
-├── xinganhua.schema.yaml                  方案：字母表、簡拼の演算、逆引き Q/X
-├── xinganhua.dict.yaml                    主辞書。import_tables が字音表を指す
-└── xinganhua.word.dict.yaml               字音表 3,648 件
-plugin/rime/src/main/cpp/default.yaml      schema_list の先頭が xinganhua
-plugin/rime/src/main/cpp/CMakeLists.txt    三つのファイルを rime-data へインストール
+plugin/rime/src/main/cpp/rime-xinganhua/   二套の方案（xinganhua-fuvufa からコピー）
+├── chengqyu.schema.yaml                   西安方言城区音：字母表、簡拼の演算、逆引き Q/X
+├── chengqyu.dict.yaml                     城区音の主辞書。import_tables が字音表を指す
+├── chengqyu.word.dict.yaml                城区音字音表 3,648 件
+├── nanjiao.schema.yaml                    西安方言南郊音（声母 24、韻母 38）
+├── nanjiao.dict.yaml                      南郊音の主辞書
+└── nanjiao.word.dict.yaml                 南郊音字音表 3,578 件
+plugin/rime/src/main/cpp/default.yaml      schema_list の先頭が chengqyu、nanjiao
+plugin/rime/src/main/cpp/CMakeLists.txt    六つのファイルを rime-data へインストール
 .github/workflows/build-custom.yml         :app と :plugin:rime だけをビルドし、APK 8 個を出す
 ```
 
-- 方案は**コピー**で取り込んでおり、submodule ではありません。方案リポジトリが更新されたら、三つのファイルを同期し直して再ビルドが必要です。自動では追随しません。
+- 方案は**コピー**で取り込んでおり、submodule ではありません。方案リポジトリが更新されたら、六つのファイルを同期し直して再ビルドが必要です。自動では追随しません。
 - 逆引きは `luna_pinyin`（普通話）と `stroke`（画数）に依存します。どちらも Rime プラグインが元から入れるので、方案側で同梱する必要はありません。
 - CI が出すのは本体と Rime プラグインの二種類だけ。他のプラグイン（注音・粤拼・日本語・韓国語など）は包みません。包むものが増えないぶん、上流と同じ大きさに収まります。
 - 本体とプラグインは `SIGN_KEY_BASE64` / `SIGN_KEY_PWD` / `SIGN_KEY_ALIAS` の三つの secrets で署名します。一つでも欠けると CI は失敗します。インストールできない包みを出さないためです。
@@ -145,7 +148,7 @@ MCPDict「西安」データ表（国際音声記号）
         │  tools/ipa2pinyin.mjs
         ▼
 xinganhua-fuvufa（方案・字表・説明）
-        │  yaml 三つをコピー
+        │  yaml 六つをコピー
         ▼
 android-xinganhua（本体＋Rime プラグイン → APK 8 個）
 ```
@@ -157,7 +160,7 @@ android-xinganhua（本体＋Rime プラグイン → APK 8 個）
 | 多音字 | 275 |
 | 声調なし音節 | 392 |
 
-本リポジトリは方案の中身を変えません。読みや綴りに問題があれば、[xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) の `data/source.tsv` を直して転写スクリプトを走らせ、新しい三つのファイルをこちらへ同期してください。
+本リポジトリは方案の中身を変えません。読みや綴りに問題があれば、[xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) の字表を直して生成スクリプトを走らせ、新しい六つのファイルをこちらへ同期してください。
 
 ---
 

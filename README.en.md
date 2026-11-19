@@ -2,11 +2,11 @@
 
 # Xi'an Dialect Input Method · Android build · android-xinganhua
 
-> The Xi'an dialect input method as a ready-to-install Android package: install the **Fcitx5 for Android** app and its **Rime plugin**, switch to 「中州韵」 and pick 「西安話」 — then type Xi'an dialect with Xi'an pinyin. No scheme files to import by hand.
+> The Xi'an dialect input method as a ready-to-install Android package: install the **Fcitx5 for Android** app and its **Rime plugin**, switch to 「中州韵」 and pick 「西安話城區音」 or 「西安話南郊音」 — then type Xi'an dialect with Xi'an pinyin. No scheme files to import by hand.
 
 - **Platform**: Android 6.0 and later (minSdk 23); four ABIs: `arm64-v8a` / `armeabi-v7a` / `x86` / `x86_64`
 - **What is published**: 8 APKs = the app × 4 ABIs + the Rime plugin × 4 ABIs, all signed with the same key
-- **Built-in scheme**: `xinganhua` (Xi'an, Guanzhong group), installed into `rime-data` by the plugin and listed first in the schema menu
+- **Built-in schemes**: `chengqyu` (urban Xi'an) and `nanjiao` (southern-suburb Xi'an), installed into `rime-data` by the plugin and listed first in the schema menu
 - **Package name**: `org.fcitx.fcitx5.android` (same as the official app, different signature — uninstall the official one first)
 - **Scheme source**: [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) (read-only reference; this repository does not change the scheme)
 - **Four languages**: Simplified Chinese / Traditional Chinese / English / 日本語 — switch with the links above; all four say the same thing, and the Simplified version is authoritative
@@ -32,8 +32,8 @@
 
 The phone build, the desktop Rime package and both web repositories all use the same **Xi'an pinyin**. A syllable is initial + final + tone digit, e.g. `ba1` 巴, `bfeng4` 中, `jyuen1` 軍:
 
-- **26 initials** (including the zero initial): `b p m f v bf pf d t n l z c s j q x zh ch sh r g k h ng`
-- **40 finals**: 15 open / 10 i-medial / 9 u-medial / 6 ü-medial
+- **Initials**: 24 shared (including the zero initial), plus `bf`, `pf` in the urban variety — 26 in all: `b p m f v bf pf d t n l z c s j q x zh ch sh r g k h ng`
+- **Finals**: 38 shared, plus `uu`, `iai` in the urban variety — 40 in all: 15 open / 10 i-medial / 9 u-medial / 6 ü-medial
 - **Four tones**: Yinping 21, Yangping 24, Shangsheng 53, Qusheng 44; the entering tone has merged into these four
 - **The tone digit follows the syllable** with no space: `bfeng4` 中, `jyuen1` 軍
 - **Syllable boundaries use an apostrophe**: `xi'ngan1` 西安 (otherwise it would split into xin 心 + gan 干)
@@ -62,11 +62,11 @@ Fcitx5 for Android is an input-method **framework**: it brings the keyboard, can
 
 So nothing here is a new input method. Three things only:
 
-1. **Put the scheme inside the plugin**: the three `xinganhua` files ship inside the Rime plugin into `rime-data`, and `default.yaml` lists `xinganhua` first in `schema_list`;
+1. **Put the schemes inside the plugin**: the six `chengqyu` / `nanjiao` files ship inside the Rime plugin into `rime-data`, and `default.yaml` lists both first in `schema_list`;
 2. **Unify the signature**: app and plugin are signed with the same release key, otherwise the app will not trust the plugin;
 3. **Publish the pair**: only the app and the Rime plugin are built, four ABIs each, together with this installation guide.
 
-In other words, what we publish is: **the Fcitx5 for Android app, modified to carry the Xi'an scheme** + **the same Rime plugin** + **a guide to download, install and use it**. It is still Fcitx5 for Android — it just types Xi'an dialect out of the box.
+In other words, what we publish is: **the Fcitx5 for Android app, modified to carry both Xi'an schemes** + **the same Rime plugin** + **a guide to download, install and use it**. It is still Fcitx5 for Android — it just types Xi'an dialect out of the box.
 
 ---
 
@@ -101,7 +101,7 @@ Settings → Languages & input → On-screen keyboard / Manage keyboards → tur
 
 1. Open the Fcitx5 for Android app, go to the input-method page, tap "+" and add **中州韵 (Rime)**;
 2. In the Rime settings tap **Deploy** once, so the plugin compiles the schemas in `rime-data`;
-3. Back on the keyboard, open the schema menu (〔方案選單〕, or `Ctrl` + `` ` ``, `F4`) and choose **西安話**;
+3. Back on the keyboard, open the schema menu (〔方案選單〕, or `Ctrl` + `` ` ``, `F4`) and choose **西安話城區音** or **西安話南郊音**;
 4. Type away: `ba1` → 巴, `bfeng4` → 中, `nge3` → 我. The tone digit is optional — `ba` offers all four tones.
 
 ### 3.6 Nothing comes out?
@@ -109,7 +109,7 @@ Settings → Languages & input → On-screen keyboard / Manage keyboards → tur
 | Symptom | Check first |
 |---|---|
 | No 「中州韵」 in the input-method list | The plugin is missing, or you installed a different ABI — install the Rime plugin for the same ABI |
-| Rime is there but no 「西安話」 | You never tapped Deploy, or it failed — deploy again in the Rime settings |
+| Rime is there but no 「西安話城區音」 | You never tapped Deploy, or it failed — deploy again in the Rime settings |
 | English works, Chinese does not | The keyboard is not on Rime (check the schema name next to the space bar) |
 | Reverse lookup (`q` + Mandarin pinyin, `x` + strokes) is missing | `luna_pinyin` / `stroke` did not come with the plugin — reinstall the same version of the Rime plugin |
 
@@ -120,16 +120,19 @@ Settings → Languages & input → On-screen keyboard / Manage keyboards → tur
 ## 4. How the scheme is built in
 
 ```
-plugin/rime/src/main/cpp/rime-xinganhua/   the three scheme files (copied from xinganhua-fuvufa)
-├── xinganhua.schema.yaml                  schema: alphabet, abbreviation algebra, Q/X reverse lookup
-├── xinganhua.dict.yaml                    main dictionary, import_tables points at the character table
-└── xinganhua.word.dict.yaml               3,648 readings
-plugin/rime/src/main/cpp/default.yaml      schema_list starts with xinganhua
-plugin/rime/src/main/cpp/CMakeLists.txt    installs the three files into rime-data
+plugin/rime/src/main/cpp/rime-xinganhua/   both schemes (copied from xinganhua-fuvufa)
+├── chengqyu.schema.yaml                   urban schema: alphabet, abbreviation algebra, Q/X reverse lookup
+├── chengqyu.dict.yaml                     urban main dictionary, import_tables points at the character table
+├── chengqyu.word.dict.yaml                urban readings, 3,648
+├── nanjiao.schema.yaml                    southern-suburb schema (24 initials, 38 finals)
+├── nanjiao.dict.yaml                      southern main dictionary
+└── nanjiao.word.dict.yaml                 southern readings, 3,578
+plugin/rime/src/main/cpp/default.yaml      schema_list starts with chengqyu, nanjiao
+plugin/rime/src/main/cpp/CMakeLists.txt    installs the six files into rime-data
 .github/workflows/build-custom.yml         builds only :app and :plugin:rime, 8 APKs
 ```
 
-- The scheme is **copied in**, not a submodule. When the scheme repository changes, the three files must be re-synced and the APKs rebuilt — the two do not track each other automatically.
+- The schemes are **copied in**, not a submodule. When the scheme repository changes, the six files must be re-synced and the APKs rebuilt — the two do not track each other automatically.
 - Reverse lookup relies on `luna_pinyin` (Mandarin) and `stroke` (stroke input), both of which the Rime plugin already installs, so the schema does not need to bundle them.
 - CI publishes only two packages: the app and the Rime plugin. Other plugins (bopomofo, Jyutping, Japanese, Korean…) are not packaged, so the download stays the same size as upstream.
 - App and plugin are both signed with `SIGN_KEY_BASE64` / `SIGN_KEY_PWD` / `SIGN_KEY_ALIAS`; if one is missing the CI fails on purpose, rather than shipping packages that cannot be installed together.
@@ -152,12 +155,12 @@ android-xinganhua (app + Rime plugin → 8 APKs)
 
 | Item | Count |
 |---|---|
-| Readings | 3,648 (one reading per line) |
+| Readings | urban 3,648 ／ southern 3,578 (one reading per line) |
 | Characters | 3,345 |
 | Polyphonic characters | 275 |
 | Toneless syllables | 392 |
 
-This repository does not change the scheme. If a reading or a spelling looks wrong, edit `data/source.tsv` in [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa), rerun the transliteration script, and copy the new three files over.
+This repository does not change the schemes. If a reading or a spelling looks wrong, edit the dictionaries in [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa), rerun the generation scripts, and copy the new six files over.
 
 ---
 

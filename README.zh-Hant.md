@@ -2,11 +2,11 @@
 
 # 西安話輸入法 · 安卓直裝版 · android-xinganhua
 
-> 把西安話輸入法做成安卓直裝包：裝上**小企鵝輸入法**（Fcitx5 for Android）的**本體**與 **Rime 插件**，切到「中州韻」再選「西安話」，就能用西安話拼音打字——不必自己往手機裏導入方案。
+> 把西安話輸入法做成安卓直裝包：裝上**小企鵝輸入法**（Fcitx5 for Android）的**本體**與 **Rime 插件**，切到「中州韻」再選「西安話城區音」或「西安話南郊音」，就能用西安話拼音打字——不必自己往手機裏導入方案。
 
 - **平臺**：Android 6.0 及以上（minSdk 23）；`arm64-v8a` / `armeabi-v7a` / `x86` / `x86_64` 四個 ABI
 - **發佈物**：8 個 APK = 本體 × 4 ABI ＋ Rime 插件 × 4 ABI，都是同一把密鑰簽名
-- **內置方案**：`xinganhua`（西安話·關中片），隨插件裝進 `rime-data`，方案選單排第一
+- **內置方案**：`chengqyu`（西安話城區音）、`nanjiao`（西安話南郊音），隨插件裝進 `rime-data`，在方案選單裏排前兩位
 - **包名**：`org.fcitx.fcitx5.android`（與官方版相同、簽名不同；裝前先卸掉官方版）
 - **方案源庫**：[xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa)（只讀引用，本倉庫不改方案內容）
 - **四種語言**：簡體 / 繁體 / English / 日本語，頂部的鏈接可直接切換；四版內容一致，以簡體版爲準
@@ -30,19 +30,19 @@
 
 ## 一、西安話拼音方案
 
-無論是手機上的小企鵝，還是電腦上的 Rime、本站的兩個倉庫，用的都是同一套**西安話拼音**。一個音節寫成「聲母 + 韻母 + 調號」，例如 `ba1` 巴、`bfeng4` 中、`jyuen1` 軍：
+無論是手機上的小企鵝，還是電腦上的 Rime、另外兩個倉庫，用的都是同一套**西安話拼音**，城區音、南郊音各一套。一個音節寫成「聲母 + 韻母 + 調號」，例如 `ba1` 巴、`jyuen1` 軍；`bfeng4` 中是城區音，南郊音作 `zuong4`：
 
-- **聲母 26 個**（含零聲母）：`b p m f v bf pf d t n l z c s j q x zh ch sh r g k h ng`
-- **韻母 40 個**：開 15 ／ 齊 10 ／ 合 9 ／ 撮 6
+- **聲母**：兩套共用 24 個（含零聲母），城區音另有 `bf`、`pf`，共 26 個：`b p m f v bf pf d t n l z c s j q x zh ch sh r g k h ng`
+- **韻母**：兩套共用 38 個，城區音另有 `uu`、`iai`，共 40 個：開 15 ／ 齊 10 ／ 合 9 ／ 撮 6
 - **四聲**：陰平 21、陽平 24、上聲 53、去聲 44；入聲已併入四調
 - **調號緊貼音節**，不空格：`bfeng4` 中、`jyuen1` 軍
 - **音節邊界用撇號**：`xi'ngan1` 西安（否則會被切成 xin 心 + gan 幹）
 
 下面四張圖把方案講全（與其他兩個倉庫用的是同一套圖，各語言版本內容一致）：
 
-![西安話聲母 26 個](figures/onsets.hant.svg)
+![西安話聲母（城區音 26；南郊音無 bf、pf）](figures/onsets.hant.svg)
 
-![西安話韻母 40 個](figures/rhymes.hant.svg)
+![西安話韻母（城區音 40；南郊音無 uu、iai）](figures/rhymes.hant.svg)
 
 ![西安話四聲](figures/tones.hant.svg)
 
@@ -62,11 +62,11 @@
 
 所以這裏不重寫輸入法，只做三件事：
 
-1. **把方案放進插件**：`xinganhua` 的三個文件隨 Rime 插件裝進 `rime-data`，並在 `default.yaml` 的 `schema_list` 裏排第一；
+1. **把方案放進插件**：`chengqyu`、`nanjiao` 兩套方案的六個文件隨 Rime 插件裝進 `rime-data`，並在 `default.yaml` 的 `schema_list` 裏排前兩位；
 2. **統一簽名**：本體與插件用同一把發佈密鑰，插件纔會被本體認下來；
 3. **把包發出來**：只構建本體與 Rime 插件，四個 ABI 各一套，附這份安裝說明。
 
-換句話說，我們發佈的內容就是：**改過、內置了西安話方案的小企鵝輸入法本體** ＋ **同一個 Rime 插件** ＋ **下載安裝使用的引導**。裝的還是小企鵝，只是開箱就能打西安話。
+換句話說，我們發佈的內容就是：**改過、內置了西安話城區音與南郊音兩套方案的小企鵝輸入法本體** ＋ **同一個 Rime 插件** ＋ **下載安裝使用的引導**。裝的還是小企鵝，只是開箱就能打西安話。
 
 ---
 
@@ -101,7 +101,7 @@ ABI 怎麼選：現在的手機基本都選 **`arm64-v8a`**；很老的 32 位�
 
 1. 打開小企鵝輸入法的 App，進「輸入法」頁，點「＋」添加 **中州韻（Rime）**；
 2. 在 Rime 的設置裏點一次 **部署**（Deploy），讓插件把 `rime-data` 裏的方案編譯出來；
-3. 回到鍵盤，用方案選單（〔方案選單〕，或 `Ctrl` + `` ` ``、`F4`）切到 **西安話**；
+3. 回到鍵盤，用方案選單（〔方案選單〕，或 `Ctrl` + `` ` ``、`F4`）切到 **西安話城區音** 或 **西安話南郊音**；
 4. 直接打：`ba1` → 巴，`bfeng4` → 中，`nge3` → 我。調號可省，打 `ba` 出四個調。
 
 ### 3.6 打不出西安話？
@@ -120,16 +120,19 @@ ABI 怎麼選：現在的手機基本都選 **`arm64-v8a`**；很老的 32 位�
 ## 四、內置方式：本倉庫改了什麼
 
 ```
-plugin/rime/src/main/cpp/rime-xinganhua/   方案三件套（拷貝自 xinganhua-fuvufa）
-├── xinganhua.schema.yaml                  方案：字母表、簡拼演算、反查 Q/X
-├── xinganhua.dict.yaml                    主詞典，import_tables 指向字音表
-└── xinganhua.word.dict.yaml               字音表 3,648 條
-plugin/rime/src/main/cpp/default.yaml      schema_list 第一項 = xinganhua
+plugin/rime/src/main/cpp/rime-xinganhua/   兩套方案（拷貝自 xinganhua-fuvufa）
+├── chengqyu.schema.yaml                   西安話城區音：字母表、簡拼演算、反查 Q/X
+├── chengqyu.dict.yaml                     城區音主詞典，import_tables 指向字音表
+├── chengqyu.word.dict.yaml                城區音字音表 3,648 條
+├── nanjiao.schema.yaml                    西安話南郊音（聲母 24、韻母 38）
+├── nanjiao.dict.yaml                      南郊音主詞典
+└── nanjiao.word.dict.yaml                 南郊音字音表 3,578 條
+plugin/rime/src/main/cpp/default.yaml      schema_list 前兩項 = chengqyu、nanjiao
 plugin/rime/src/main/cpp/CMakeLists.txt    三個文件安裝到 rime-data
 .github/workflows/build-custom.yml         只構建 :app 與 :plugin:rime，出 8 個 APK
 ```
 
-- 方案是**拷貝**進來的，不是 submodule。方案倉庫更新後，要重新同步這三個文件再出包，兩邊不會自動跟。
+- 方案是**拷貝**進來的，不是 submodule。方案倉庫更新後，要重新同步這六個文件再出包，兩邊不會自動跟。
 - 反查依賴 `luna_pinyin`（普通話）與 `stroke`（筆畫），這兩個上游方案本來就隨 Rime 插件裝好，所以方案裏不用再帶。
 - CI 只出兩類包：本體和 Rime 插件。其它插件（注音、粵拼、日文、韓文……）不打包，包體和上游一致，不會因爲多帶插件而變大。
 - 本體與插件都用 `SIGN_KEY_BASE64` / `SIGN_KEY_PWD` / `SIGN_KEY_ALIAS` 這三項 secrets 簽名；缺一項，CI 直接失敗，避免發出裝不上的包。
@@ -157,7 +160,7 @@ android-xinganhua（本體 + Rime 插件 → 8 個 APK）
 | 多音字 | 275 |
 | 不計調音節 | 392 |
 
-本倉庫不改方案內容：發現讀音或拼寫有問題，請改 [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) 的 `data/source.tsv` 後重跑轉寫腳本，再把新的三個文件同步過來。
+本倉庫不改方案內容：發現讀音或拼寫有問題，請改 [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) 的字表（城區音 `data/source.tsv`、南郊音字表）後重跑生成腳本，再把新的六個文件同步過來。
 
 ---
 

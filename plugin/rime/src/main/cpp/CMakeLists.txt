@@ -59,12 +59,16 @@ install(FILES
         )
 
 # xinganhua (西安话·关中片) scheme files
-# 只用三个文件：schema + 主词典（import_tables 指向字音表）+ 字音表
+# 城区音 chengqyu、南郊音 nanjiao 两套方案，各三个文件：
+# schema + 主词典（import_tables 指向字音表）+ 字音表
 # 反查依赖 luna_pinyin / stroke，两个上游方案已经随插件装好，无需另外加。
 install(FILES
-        "rime-xinganhua/xinganhua.schema.yaml"
-        "rime-xinganhua/xinganhua.dict.yaml"
-        "rime-xinganhua/xinganhua.word.dict.yaml"
+        "rime-xinganhua/chengqyu.schema.yaml"
+        "rime-xinganhua/chengqyu.dict.yaml"
+        "rime-xinganhua/chengqyu.word.dict.yaml"
+        "rime-xinganhua/nanjiao.schema.yaml"
+        "rime-xinganhua/nanjiao.dict.yaml"
+        "rime-xinganhua/nanjiao.word.dict.yaml"
         DESTINATION "${FCITX_INSTALL_DATADIR}/rime-data"
         COMPONENT prebuilt-assets
         )
