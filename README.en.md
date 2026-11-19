@@ -40,9 +40,9 @@ The phone build, the desktop Rime package and both web repositories all use the 
 
 The four figures below cover the whole scheme. They are the same figures used in the other two repositories, one set per language, identical in content:
 
-![Xi'an initials: 26](figures/onsets.en.svg)
+![Xi'an initials: urban 26, southern suburb 24](figures/onsets.en.svg)
 
-![Xi'an finals: 40](figures/rhymes.en.svg)
+![Xi'an finals: urban 40, southern suburb 38](figures/rhymes.en.svg)
 
 ![The four Xi'an tones](figures/tones.en.svg)
 
