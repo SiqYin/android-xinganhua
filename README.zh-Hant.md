@@ -39,7 +39,7 @@
 - **音節邊界用撇號**：`xi'ngan1` 西安（否則會被切成 xin 心 + gan 幹）
 輸入端可用簡拼：`in / ing / iu / ui / un / ung / yun / yung`（分別對應 `ien / ieng / iou / uei / uen / uong / yuen / yuong`；零聲母只放行 `yuen`、`yuong`）；調號不輸入。
 
-下面四張圖把方案講全（與其他兩個倉庫用的是同一套圖，各語言版本內容一致）：
+下面五張圖把方案講全（與其他兩個倉庫用的是同一套圖，各語言版本內容一致）：
 
 ![西安話聲母（城區音 26；南郊音 25——多 rh，無 bf、pf）](figures/onsets.hant.svg)
 
@@ -48,6 +48,8 @@
 ![西安話四聲](figures/tones.hant.svg)
 
 ![音節結構：聲母 + 韻母 + 調號](figures/syllable.hant.svg)
+
+![西安話簡拼對照圖（輸入端 8 條縮寫規則）](figures/abbrev.hant.svg)
 
 方案的完整說明——聲母韻母的分佈規則、正字法細則、與普通話拼音的逐條對照、可用的簡拼——見輸入法倉庫的 [README](https://github.com/SiqYin/xinganhua-fuvufa)（[簡體](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.md) ／ [繁體](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.zh-Hant.md) ／ [English](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.en.md) ／ [日本語](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.ja.md)）。查字音可以用[字音查詢站](https://siqyin.github.io/xinganhua-ziyencaxin/)。
 
@@ -127,7 +129,7 @@ plugin/rime/src/main/cpp/rime-xinganhua/   兩套方案（拷貝自 xinganhua-fu
 ├── chengqyu.word.dict.yaml                城區音字音表 3,648 條
 ├── nanjiao.schema.yaml                    西安話南郊音（聲母 25 含 rh、韻母 38）
 ├── nanjiao.dict.yaml                      南郊音主詞典
-└── nanjiao.word.dict.yaml                 南郊音字音表 4,175 條
+└── nanjiao.word.dict.yaml                 南郊音字音表 4,350 條
 plugin/rime/src/main/cpp/default.yaml      schema_list 前兩項 = chengqyu、nanjiao
 plugin/rime/src/main/cpp/CMakeLists.txt    三個文件安裝到 rime-data
 .github/workflows/build-custom.yml         只構建 :app 與 :plugin:rime，出 8 個 APK
@@ -156,8 +158,8 @@ android-xinganhua（本體 + Rime 插件 → 8 個 APK）
 
 | 項 | 城區音 | 南郊音 |
 |---|---|---|
-| 字音條目 | 3,648 | 4,175（一字一音一行） |
-| 字頭 | 3,345 | 3,931（含僅渭南有 586） |
+| 字音條目 | 3,648 | 4,350（一字一音一行） |
+| 字頭 | 3,345 | 4,065（含渭南獨有等新增 720 字） |
 | 多音字 | 275 | 223 |
 | 不計調音節 | 392 | 389 |
 

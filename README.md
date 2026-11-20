@@ -39,7 +39,7 @@
 - **音节边界用撇号**：`xi'ngan1` 西安（否则会被切成 xin 心 + gan 干）
 输入端可用简拼：`in / ing / iu / ui / un / ung / yun / yung`（分别对应 `ien / ieng / iou / uei / uen / uong / yuen / yuong`；零声母只放行 `yuen`、`yuong`）；调号不输入。
 
-下面四张图把方案讲全（与其他两个仓库用的是同一套图，各语言版本内容一致）：
+下面五张图把方案讲全（与其他两个仓库用的是同一套图，各语言版本内容一致）：
 
 ![西安话声母（城区音 26；南郊音 25——多 rh，无 bf、pf）](figures/onsets.hans.svg)
 
@@ -48,6 +48,8 @@
 ![西安话四声](figures/tones.hans.svg)
 
 ![音节结构：声母 + 韵母 + 调号](figures/syllable.hans.svg)
+
+![西安话简拼对照图（输入端 8 条缩写规则）](figures/abbrev.hans.svg)
 
 方案的完整说明——声母韵母的分布规则、正字法细则、与普通话拼音的逐条对照、可用的简拼——见输入法仓库的 [README](https://github.com/SiqYin/xinganhua-fuvufa)（[简体](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.md) ／ [繁體](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.zh-Hant.md) ／ [English](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.en.md) ／ [日本語](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.ja.md)）。查字音可以用[字音查询站](https://siqyin.github.io/xinganhua-ziyencaxin/)。
 

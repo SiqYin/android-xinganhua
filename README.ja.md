@@ -39,7 +39,7 @@
 - **音節の境界は撇号（アポストロフィ）**：`xi'ngan1` 西安（そのまま書くと xin 心 ＋ gan 干 に切られる）
 - **簡拼**：入力側では `in / ing / iu / ui / un / ung / yun / yung` が使えます（それぞれ `ien / ieng / iou / uei / uen / uong / yuen / yuong` に対応。零声母は `yuen`・`yuong` のみ）。声調番号は入力しません。
 
-以下の四枚で方案の全体が分かります。ほかの二つのリポジトリと同じ図を言語ごとに用意したもので、内容は各言語版で一致しています：
+以下の五枚で方案の全体が分かります。ほかの二つのリポジトリと同じ図を言語ごとに用意したもので、内容は各言語版で一致しています：
 
 ![西安方言の声母（城区音 26；南郊音 25——rh あり、bf・pf なし）](figures/onsets.ja.svg)
 
@@ -48,6 +48,8 @@
 ![西安方言の四声](figures/tones.ja.svg)
 
 ![音節の構造：声母＋韻母＋声調番号](figures/syllable.ja.svg)
+
+![入力側の略式綴り（8 つのルール）](figures/abbrev.ja.svg)
 
 声母・韻母の分布規則、正書法の細則、普通話ピンインとの項目別の対照、使える簡拼まで含む完全な説明は、入力法リポジトリの [README](https://github.com/SiqYin/xinganhua-fuvufa)（[简体](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.md) ／ [繁體](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.zh-Hant.md) ／ [English](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.en.md) ／ [日本語](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.ja.md)）を参照してください。字音は[字音検索サイト](https://siqyin.github.io/xinganhua-ziyencaxin/)で引けます。
 
