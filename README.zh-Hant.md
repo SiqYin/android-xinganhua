@@ -189,7 +189,8 @@ android-xinganhua（本體 + Rime 插件 → 8 個 APK）
 - [fcitx5-android](https://github.com/fcitx5-android/fcitx5-android)（小企鵝輸入法）——本倉庫的上游，鍵盤、框架與插件體系都來自這裏
 - [fcitx5](https://github.com/fcitx/fcitx5) 與 [librime](https://github.com/rime/librime) ——框架與 Rime 引擎
 - [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) ——西安話拼音方案、字表與四語說明
-- [osfans/MCPDict](https://github.com/osfans/MCPDict) ——字音數據源
+- [西安話音檔](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)、[渭南話音檔](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv)、[臨潼話音檔](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv)、[華縣話音檔](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv)——均出自 [osfans/MCPDict](https://github.com/osfans/MCPDict)；西安話音檔即城區音字音數據源（國際音標），渭南、臨潼、華縣三檔用於南郊音的整理參照
+- **南郊話音檔**沒有現成字表可依：以西安話、渭南話、臨潼話、華縣話音檔等爲基底，參照知乎上關於南郊音、東郊音平翹舌歸併情況的討論，並與本人及家人的口音逐字校對整理而成，因此**僅供參考**
 - [fcitx5-wugniu](https://github.com/SiqYin/fcitx5-wugniu) ——吳語直裝包，本倉庫的打包做法參照
 
 ---
