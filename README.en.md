@@ -33,16 +33,17 @@
 The phone build, the desktop Rime package and both web repositories all use the same **Xi'an pinyin**. A syllable is initial + final + tone digit, e.g. `ba1` 巴, `bfeng4` 中, `jyuen1` 軍:
 
 - **Initials**: 24 shared (including the zero initial), plus `bf`, `pf` in the urban variety (26 in all) and `rh` in the southern variety (25 in all): `b p m f v bf pf d t n l z c s rh j q x zh ch sh r g k h ng`
-- **Finals**: 38 shared (15 open / 8 i-medial / 9 u-medial / 6 ü-medial), plus `uu`, `iai` in the urban variety — 40 in all (16 / 9 / 9 / 6); plus `yua` in the southern variety — 39 in all (15 / 8 / 9 / 7)
+- **Finals**: 38 shared (15 open / 8 i-medial / 9 u-medial / 6 ü-medial), plus `uu`, `iai` in the urban variety — 40 in all (16 / 9 / 9 / 6)
 - **Four tones**: Yinping 21, Yangping 24, Shangsheng 53, Qusheng 44; the entering tone has merged into these four
 - **The tone digit follows the syllable** with no space: `bfeng4` 中, `jyuen1` 軍
 - **Syllable boundaries use an apostrophe**: `xi'ngan1` 西安 (otherwise it would split into xin 心 + gan 干)
+- **Abbreviations (input side only)**: `in / ing / iu / ui / un / ung / yun / yung` stand for `ien / ieng / iou / uei / uen / uong / yuen / yuong` (the zero initial only allows `yuen`, `yuong`); the tone digit is not typed.
 
 The four figures below cover the whole scheme. They are the same figures used in the other two repositories, one set per language, identical in content:
 
 ![Xi'an initials: urban 26, southern suburb 25](figures/onsets.en.svg)
 
-![Xi'an finals: urban 40, southern suburb 39](figures/rhymes.en.svg)
+![Xi'an finals: urban 40, southern suburb 38](figures/rhymes.en.svg)
 
 ![The four Xi'an tones](figures/tones.en.svg)
 
@@ -76,7 +77,7 @@ In other words, what we publish is: **the Fcitx5 for Android app, modified to ca
 
 ### 3.1 Get the files
 
-- **Releases** (recommended): <https://github.com/SiqYin/android-xinganhua/releases> — the latest release (v1.1.0 at the time of writing) has 8 APKs:
+- **Releases** (recommended): <https://github.com/SiqYin/android-xinganhua/releases> — the latest release (v1.1.1 at the time of writing) has 8 APKs:
   - app: `org.fcitx.fcitx5.android-…-<abi>-release.apk`
   - plugin: `org.fcitx.fcitx5.android.plugin.rime-…-<abi>-release.apk`
 - **Actions**: in the artifacts of the `Build Custom APK` workflow, `fcitx5-android-custom` is the app and `fcitx5-plugins` contains the Rime plugin.
@@ -124,9 +125,9 @@ plugin/rime/src/main/cpp/rime-xinganhua/   both schemes (copied from xinganhua-f
 ├── chengqyu.schema.yaml                   urban schema: alphabet, abbreviation algebra, Q/X reverse lookup
 ├── chengqyu.dict.yaml                     urban main dictionary, import_tables points at the character table
 ├── chengqyu.word.dict.yaml                urban readings, 3,648
-├── nanjiao.schema.yaml                    southern-suburb schema (25 initials incl. rh, 39 finals incl. yua)
+├── nanjiao.schema.yaml                    southern-suburb schema (25 initials incl. rh, 38 finals)
 ├── nanjiao.dict.yaml                      southern main dictionary
-└── nanjiao.word.dict.yaml                 southern readings, 4,176
+└── nanjiao.word.dict.yaml                 southern readings, 4,175
 plugin/rime/src/main/cpp/default.yaml      schema_list starts with chengqyu, nanjiao
 plugin/rime/src/main/cpp/CMakeLists.txt    installs the six files into rime-data
 .github/workflows/build-custom.yml         builds only :app and :plugin:rime, 8 APKs
@@ -155,10 +156,10 @@ android-xinganhua (app + Rime plugin → 8 APKs)
 
 | Item | Count |
 |---|---|
-| Readings | urban 3,648 / southern 4,176 (one reading per line) |
-| Characters | urban 3,345 / southern 3,932 (incl. 587 southern-only) |
+| Readings | urban 3,648 / southern 4,175 (one reading per line) |
+| Characters | urban 3,345 / southern 3,931 (incl. 586 southern-only) |
 | Polyphonic characters | urban 275 / southern 223 |
-| Toneless syllables | urban 392 / southern 390 |
+| Toneless syllables | urban 392 / southern 389 |
 
 This repository does not change the schemes. If a reading or a spelling looks wrong, edit the dictionaries in [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa), rerun the generation scripts, and copy the new six files over.
 
