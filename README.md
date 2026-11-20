@@ -47,6 +47,8 @@
 
 ![西安话四声](figures/tones.hans.svg)
 
+西安话的连读变调主要是前字变调，分为两类：连续两字为一声（阴平）21-21 时，第一个一声字改读二声（阳平）24-21；连续两字为三声（上声）53-53 时，第一个三声字改读一声（阴平）21-53。
+
 ![音节结构：声母 + 韵母 + 调号](figures/syllable.hans.svg)
 
 ![西安话简拼对照图（输入端 8 条缩写规则）](figures/abbrev.hans.svg)
@@ -189,7 +191,7 @@ android-xinganhua（本体 + Rime 插件 → 8 个 APK）
 - [fcitx5-android](https://github.com/fcitx5-android/fcitx5-android)（小企鹅输入法）——本仓库的上游，键盘、框架与插件体系都来自这里
 - [fcitx5](https://github.com/fcitx/fcitx5) 与 [librime](https://github.com/rime/librime) ——框架与 Rime 引擎
 - [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) ——西安话拼音方案、字表与四语说明
-- [西安话音档](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)、[渭南话音档](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv)、[临潼话音档](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv)、[华县话音档](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv)——均出自 [osfans/MCPDict](https://github.com/osfans/MCPDict)；西安话音档即城区音字音数据源（国际音标），渭南、临潼、华县三档用于南郊音的整理参照
+- [西安话音档](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)、[渭南话音档](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv)、[华县话音档](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv)、[临潼话音档](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv)——均出自 [osfans/MCPDict](https://github.com/osfans/MCPDict)。西安话音档即城区音字音来源；南郊音参照西安话、渭南话、华县话、临潼话等音档逐字厘定。
 - **南郊话音档**没有现成字表可依：以西安话、渭南话、临潼话、华县话音档等为基底，参照知乎上关于南郊音、东郊音平翘舌归并情况的讨论，并与本人及家人的口音逐字校对整理而成，因此**仅供参考**
 - [fcitx5-wugniu](https://github.com/SiqYin/fcitx5-wugniu) ——吴语直装包，本仓库的打包做法参照
 

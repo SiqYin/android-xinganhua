@@ -47,6 +47,8 @@
 
 ![西安方言の四声](figures/tones.ja.svg)
 
+西安方言の連続変調は主に前の字が変わるもので、二種類あります。二つの字が続けてともに一声（陰平）21-21 のとき、前の一声の字は二声（陽平）に変わって 24-21 になります。二つの字が続けてともに三声（上声）53-53 のとき、前の三声の字は一声（陰平）に変わって 21-53 になります。
+
 ![音節の構造：声母＋韻母＋声調番号](figures/syllable.ja.svg)
 
 ![入力側の略式綴り（8 つのルール）](figures/abbrev.ja.svg)
@@ -189,7 +191,7 @@ android-xinganhua（本体＋Rime プラグイン → APK 8 個）
 - [fcitx5-android](https://github.com/fcitx5-android/fcitx5-android) —— 上流。キーボード、枠組み、プラグインの仕組みはここから
 - [fcitx5](https://github.com/fcitx/fcitx5) と [librime](https://github.com/rime/librime) —— 枠組みと Rime エンジン
 - [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) —— 西安方言ピンインの方案、字表、四言語の説明
-- [西安話データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)、[渭南話データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv)、[臨潼話データ表](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv)、[華県データ表](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv)——いずれも [osfans/MCPDict](https://github.com/osfans/MCPDict) によるもの。西安話データ表は城区音の字音データ源（国際音声記号）、渭南・臨潼・華県の三表は南郊音の整理時の参照資料
+- [西安話データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv)、[渭南話データ表](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv)、[華県データ表](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv)、[臨潼話データ表](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv)——いずれも [osfans/MCPDict](https://github.com/osfans/MCPDict) によるものです。西安話データ表が城区音の字音の出所で、南郊音は西安話・渭南話・華県話・臨潼話などの音声資料を参照して一字ずつ定めました。
 - **南郊話の音档**に既成の字表はない：西安話・渭南話・臨潼話・華県話などのデータ表を下敷きに、南郊音・東郊音の平翘舌（平舌／翘舌声母）の帰属をめぐる知乎（Zhihu）の議論を参照し、筆者自身と家族の発音で一字ずつ照合して整理したものであるため、**参考程度にとどめてください**
 - [fcitx5-wugniu](https://github.com/SiqYin/fcitx5-wugniu) —— 呉語の直装パッケージ。本リポジトリの包み方はこれを参照
 

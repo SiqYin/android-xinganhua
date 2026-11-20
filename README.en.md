@@ -47,6 +47,8 @@ The five figures below cover the whole scheme. They are the same figures used in
 
 ![The four Xi'an tones](figures/tones.en.svg)
 
+Xi'an tone sandhi is mainly a change of the first syllable, in two types: when two consecutive syllables are both Tone 1 (Yinping) 21-21, the first Tone 1 syllable changes to Tone 2 (Yangping), giving 24-21; when two consecutive syllables are both Tone 3 (Shangsheng) 53-53, the first Tone 3 syllable changes to Tone 1 (Yinping), giving 21-53.
+
 ![Syllable structure: initial + final + tone](figures/syllable.en.svg)
 
 ![Short forms for input: the 8 abbreviations](figures/abbrev.en.svg)
@@ -189,7 +191,7 @@ Release builds need signing configured. Without a key you can build debug packag
 - [fcitx5-android](https://github.com/fcitx5-android/fcitx5-android) — the upstream project; keyboard, framework and plugin system all come from here
 - [fcitx5](https://github.com/fcitx/fcitx5) and [librime](https://github.com/rime/librime) — framework and Rime engine
 - [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) — the Xi'an pinyin scheme, character table and four-language docs
-- [Xi'an table](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv), [Weinan table](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv), [Lintong table](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv), [Huaxian table](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv) — all from [osfans/MCPDict](https://github.com/osfans/MCPDict); the Xi'an table is the source of the urban readings (IPA), while the Weinan, Lintong and Huaxian tables served as references for compiling the southern-suburb data
+- [Xi'an table](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E8%A5%BF%E5%AE%89.tsv), [Weinan table](https://github.com/osfans/MCPDict/blob/master/tools/tables/data/%E6%B8%AD%E5%8D%97.tsv), [Huaxian table](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E5%8D%8E%E5%8E%BF.tsv), [Lintong table](https://github.com/osfans/MCPDict/blob/master/tools%2Ftables%2Fdata%2F%E4%B8%B4%E6%BD%BC%E6%96%B9%E8%A8%80%E8%AF%AD%E9%9F%B3%E7%A0%94%E7%A9%B6.tsv) — all from [osfans/MCPDict](https://github.com/osfans/MCPDict). The Xi'an table is the source of the urban readings; the southern-suburb readings are established character by character with reference to the Xi'an, Weinan, Huaxian and Lintong sound data.
 - **The southern-suburb sound data** has no ready-made table of its own: it was compiled on the basis of the Xi'an, Weinan, Lintong and Huaxian tables, with reference to Zhihu discussions on how the flat and retroflex sibilants merge in the southern- and eastern-suburb accents, and checked character by character against the speech of the author and their family — it is therefore **for reference only**
 - [fcitx5-wugniu](https://github.com/SiqYin/fcitx5-wugniu) — the Wu-dialect ready-to-install build this packaging approach follows
 
