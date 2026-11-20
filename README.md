@@ -39,7 +39,7 @@
 - **音节边界用撇号**：`xi'ngan1` 西安（否则会被切成 xin 心 + gan 干）
 输入端可用简拼：`in / ing / iu / ui / un / ung / yun / yung`（分别对应 `ien / ieng / iou / uei / uen / uong / yuen / yuong`；零声母只放行 `yuen`、`yuong`）；调号不输入。
 
-下面五张图把方案讲全（与其他两个仓库用的是同一套图，各语言版本内容一致）：
+下面六张图把方案讲全（与其他两个仓库用的是同一套图，各语言版本内容一致）：
 
 ![西安话声母（城区音 26；南郊音 25——多 rh，无 bf、pf）](figures/onsets.hans.svg)
 
@@ -52,6 +52,11 @@
 ![音节结构：声母 + 韵母 + 调号](figures/syllable.hans.svg)
 
 ![西安话简拼对照图（输入端 8 条缩写规则）](figures/abbrev.hans.svg)
+
+![南郊音的变体](figures/variant.hans.svg)
+
+**南郊音变体**：南郊音 z、c、s、rh 四组声母与 u 相接时，分别存在 zhu、chu、shu、ru 的对应翘舌变体；其中 sh 与 u 相拼（shu）另有 f 声母变体。上述变体只在城区音读 bf、pf、f、v 的字上加注，例如「水」南郊音 `suei3` 另有变体 `shuei3`、`fei3`；变体与基本读音同调，字表中另立一行并注明「变体」。
+
 
 方案的完整说明——声母韵母的分布规则、正字法细则、与普通话拼音的逐条对照、可用的简拼——见输入法仓库的 [README](https://github.com/SiqYin/xinganhua-fuvufa)（[简体](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.md) ／ [繁體](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.zh-Hant.md) ／ [English](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.en.md) ／ [日本語](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.ja.md)）。查字音可以用[字音查询站](https://siqyin.github.io/xinganhua-ziyencaxin/)。
 
@@ -131,7 +136,7 @@ plugin/rime/src/main/cpp/rime-xinganhua/   两套方案（拷贝自 xinganhua-fu
 ├── chengqyu.word.dict.yaml                城区音字音表 3,648 条
 ├── nanjiao.schema.yaml                    西安话南郊音（声母 25 含 rh、韵母 38）
 ├── nanjiao.dict.yaml                      南郊音主词典
-└── nanjiao.word.dict.yaml                 南郊音字音表 4,350 条
+└── nanjiao.word.dict.yaml                 南郊音字音表 4,534 条
 plugin/rime/src/main/cpp/default.yaml      schema_list 前两项 = chengqyu、nanjiao
 plugin/rime/src/main/cpp/CMakeLists.txt    三个文件安装到 rime-data
 .github/workflows/build-custom.yml         只构建 :app 与 :plugin:rime，出 8 个 APK
@@ -160,10 +165,10 @@ android-xinganhua（本体 + Rime 插件 → 8 个 APK）
 
 | 项 | 城区音 | 南郊音 |
 |---|---|---|
-| 字音条目 | 3,648 | 4,350（一字一音一行） |
+| 字音条目 | 3,648 | 4,534（一字一音一行） |
 | 字头 | 3,345 | 4,065（含渭南独有等新增 720 字） |
 | 多音字 | 275 | 223 |
-| 不计调音节 | 392 | 389 |
+| 不计调音节 | 392 | 420 |
 
 本仓库不改方案内容：发现读音或拼写有问题，请改 [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) 的字表（城区音 `data/source.tsv`、南郊音字表）后重跑生成脚本，再把新的六个文件同步过来。
 

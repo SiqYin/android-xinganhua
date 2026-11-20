@@ -39,7 +39,7 @@ The phone build, the desktop Rime package and both web repositories all use the 
 - **Syllable boundaries use an apostrophe**: `xi'ngan1` 西安 (otherwise it would split into xin 心 + gan 干)
 - **Abbreviations (input side only)**: `in / ing / iu / ui / un / ung / yun / yung` stand for `ien / ieng / iou / uei / uen / uong / yuen / yuong` (the zero initial only allows `yuen`, `yuong`); the tone digit is not typed.
 
-The five figures below cover the whole scheme. They are the same figures used in the other two repositories, one set per language, identical in content:
+The six figures below cover the whole scheme. They are the same figures used in the other two repositories, one set per language, identical in content:
 
 ![Xi'an initials: urban 26, southern suburb 25](figures/onsets.en.svg)
 
@@ -52,6 +52,11 @@ Xi'an tone sandhi is mainly a change of the first syllable, in two types: when t
 ![Syllable structure: initial + final + tone](figures/syllable.en.svg)
 
 ![Short forms for input: the 8 abbreviations](figures/abbrev.en.svg)
+
+![Southern-suburb variants](figures/variant.en.svg)
+
+**Southern-suburb variants**：Where the southern-suburb initials z, c, s and rh combine with u, the retroflex zh, ch, sh and r are also possible; and where sh combines with u (shu) there is in addition an f variant. These variants are noted only for characters whose urban reading has bf, pf, f or v — for example 水 is `suei3` in the southern suburb, with the variants `shuei3` and `fei3`. A variant keeps the tone of the base reading, gets its own row in the table and is marked “variant”.
+
 
 For the full description — distribution rules, orthographic details, a point-by-point comparison with Mandarin pinyin, and the allowed short spellings — see the input-method repository's [README](https://github.com/SiqYin/xinganhua-fuvufa) ([简体](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.md) / [繁體](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.zh-Hant.md) / [English](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.en.md) / [日本語](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.ja.md)). To look up a reading, use the [pronunciation lookup site](https://siqyin.github.io/xinganhua-ziyencaxin/).
 
@@ -131,7 +136,7 @@ plugin/rime/src/main/cpp/rime-xinganhua/   both schemes (copied from xinganhua-f
 ├── chengqyu.word.dict.yaml                urban readings, 3,648
 ├── nanjiao.schema.yaml                    southern-suburb schema (25 initials incl. rh, 38 finals)
 ├── nanjiao.dict.yaml                      southern main dictionary
-└── nanjiao.word.dict.yaml                 southern readings, 4,350
+└── nanjiao.word.dict.yaml                 southern readings, 4,534
 plugin/rime/src/main/cpp/default.yaml      schema_list starts with chengqyu, nanjiao
 plugin/rime/src/main/cpp/CMakeLists.txt    installs the six files into rime-data
 .github/workflows/build-custom.yml         builds only :app and :plugin:rime, 8 APKs
@@ -160,10 +165,10 @@ android-xinganhua (app + Rime plugin → 8 APKs)
 
 | Item | Count |
 |---|---|
-| Readings | urban 3,648 / southern 4,350 (one reading per line) |
+| Readings | urban 3,648 / southern 4,534 (one reading per line) |
 | Characters | urban 3,345 / southern 4,065 (incl. 720 added characters) |
-| Polyphonic characters | urban 275 / southern 223 |
-| Toneless syllables | urban 392 / southern 389 |
+| Polyphonic characters | urban 275 / southern 380 |
+| Toneless syllables | urban 392 / southern 420 |
 
 This repository does not change the schemes. If a reading or a spelling looks wrong, edit the dictionaries in [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa), rerun the generation scripts, and copy the new six files over.
 

@@ -53,6 +53,11 @@
 
 ![西安話簡拼對照圖（輸入端 8 條縮寫規則）](figures/abbrev.hant.svg)
 
+![南郊音的變體](figures/variant.hant.svg)
+
+**南郊音變體**：南郊音 z、c、s、rh 四組聲母與 u 相接時，分別存在 zhu、chu、shu、ru 的對應翹舌變體；其中 sh 與 u 相拼（shu）另有 f 聲母變體。上述變體只在城區音讀 bf、pf、f、v 的字上加註，例如「水」南郊音 `suei3` 另有變體 `shuei3`、`fei3`；變體與基本讀音同調，字表中另立一行並註明「變體」。
+
+
 方案的完整說明——聲母韻母的分佈規則、正字法細則、與普通話拼音的逐條對照、可用的簡拼——見輸入法倉庫的 [README](https://github.com/SiqYin/xinganhua-fuvufa)（[簡體](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.md) ／ [繁體](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.zh-Hant.md) ／ [English](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.en.md) ／ [日本語](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.ja.md)）。查字音可以用[字音查詢站](https://siqyin.github.io/xinganhua-ziyencaxin/)。
 
 ---
@@ -131,7 +136,7 @@ plugin/rime/src/main/cpp/rime-xinganhua/   兩套方案（拷貝自 xinganhua-fu
 ├── chengqyu.word.dict.yaml                城區音字音表 3,648 條
 ├── nanjiao.schema.yaml                    西安話南郊音（聲母 25 含 rh、韻母 38）
 ├── nanjiao.dict.yaml                      南郊音主詞典
-└── nanjiao.word.dict.yaml                 南郊音字音表 4,350 條
+└── nanjiao.word.dict.yaml                 南郊音字音表 4,534 條
 plugin/rime/src/main/cpp/default.yaml      schema_list 前兩項 = chengqyu、nanjiao
 plugin/rime/src/main/cpp/CMakeLists.txt    三個文件安裝到 rime-data
 .github/workflows/build-custom.yml         只構建 :app 與 :plugin:rime，出 8 個 APK
@@ -160,10 +165,10 @@ android-xinganhua（本體 + Rime 插件 → 8 個 APK）
 
 | 項 | 城區音 | 南郊音 |
 |---|---|---|
-| 字音條目 | 3,648 | 4,350（一字一音一行） |
+| 字音條目 | 3,648 | 4,534（一字一音一行） |
 | 字頭 | 3,345 | 4,065（含渭南獨有等新增 720 字） |
 | 多音字 | 275 | 223 |
-| 不計調音節 | 392 | 389 |
+| 不計調音節 | 392 | 420 |
 
 本倉庫不改方案內容：發現讀音或拼寫有問題，請改 [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) 的字表（城區音 `data/source.tsv`、南郊音字表）後重跑生成腳本，再把新的六個文件同步過來。
 

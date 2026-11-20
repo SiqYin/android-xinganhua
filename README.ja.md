@@ -53,6 +53,11 @@
 
 ![入力側の略式綴り（8 つのルール）](figures/abbrev.ja.svg)
 
+![南郊音の変体](figures/variant.ja.svg)
+
+**南郊音の変体**：南郊音の z・c・s・rh の四組の声母が u と結合するとき、zh・ch・sh・r のそり舌の変体もあります。また sh と u が結合する場合（shu）には f の変体もあります。これらの変体は城区音が bf・pf・f・v と読む字にのみ付けます。たとえば「水」の南郊音は `suei3` で、変体 `shuei3`・`fei3` があります。変体は基本の読みと同じ声調で、字表では別の行として「変体」と記します。
+
+
 声母・韻母の分布規則、正書法の細則、普通話ピンインとの項目別の対照、使える簡拼まで含む完全な説明は、入力法リポジトリの [README](https://github.com/SiqYin/xinganhua-fuvufa)（[简体](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.md) ／ [繁體](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.zh-Hant.md) ／ [English](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.en.md) ／ [日本語](https://github.com/SiqYin/xinganhua-fuvufa/blob/main/README.ja.md)）を参照してください。字音は[字音検索サイト](https://siqyin.github.io/xinganhua-ziyencaxin/)で引けます。
 
 ---
@@ -131,7 +136,7 @@ plugin/rime/src/main/cpp/rime-xinganhua/   二套の方案（xinganhua-fuvufa �
 ├── chengqyu.word.dict.yaml                城区音字音表 3,648 件
 ├── nanjiao.schema.yaml                    西安方言南郊音（声母 25——rh を含む、韻母 38）
 ├── nanjiao.dict.yaml                      南郊音の主辞書
-└── nanjiao.word.dict.yaml                 南郊音字音表 4,350 件
+└── nanjiao.word.dict.yaml                 南郊音字音表 4,534 件
 plugin/rime/src/main/cpp/default.yaml      schema_list の先頭が chengqyu、nanjiao
 plugin/rime/src/main/cpp/CMakeLists.txt    六つのファイルを rime-data へインストール
 .github/workflows/build-custom.yml         :app と :plugin:rime だけをビルドし、APK 8 個を出す
@@ -160,10 +165,10 @@ android-xinganhua（本体＋Rime プラグイン → APK 8 個）
 
 | 項目 | 数 |
 |---|---|
-| 字音項目 | 城区音 3,648 ／ 南郊音 4,350（一字一音一行） |
+| 字音項目 | 城区音 3,648 ／ 南郊音 4,534（一字一音一行） |
 | 字頭 | 城区 3,345 ／ 南郊 4,065（渭南独占などの追加 720 字を含む） |
-| 多音字 | 城区 275 ／ 南郊 223 |
-| 声調なし音節 | 城区 392 ／ 南郊 389 |
+| 多音字 | 城区 275 ／ 南郊 380 |
+| 声調なし音節 | 城区 392 ／ 南郊 420 |
 
 本リポジトリは方案の中身を変えません。読みや綴りに問題があれば、[xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) の字表を直して生成スクリプトを走らせ、新しい六つのファイルをこちらへ同期してください。
 
