@@ -136,7 +136,7 @@ plugin/rime/src/main/cpp/rime-xinganhua/   兩套方案（拷貝自 xinganhua-fu
 ├── chengqyu.word.dict.yaml                城區音字音表 3,648 條
 ├── nanjiao.schema.yaml                    西安話南郊音（聲母 25 含 rh、韻母 38）
 ├── nanjiao.dict.yaml                      南郊音主詞典
-└── nanjiao.word.dict.yaml                 南郊音字音表 4,534 條
+└── nanjiao.word.dict.yaml                 南郊音字音表 4,594 條
 plugin/rime/src/main/cpp/default.yaml      schema_list 前兩項 = chengqyu、nanjiao
 plugin/rime/src/main/cpp/CMakeLists.txt    三個文件安裝到 rime-data
 .github/workflows/build-custom.yml         只構建 :app 與 :plugin:rime，出 8 個 APK
@@ -165,7 +165,7 @@ android-xinganhua（本體 + Rime 插件 → 8 個 APK）
 
 | 項 | 城區音 | 南郊音 |
 |---|---|---|
-| 字音條目 | 3,648 | 4,534（一字一音一行） |
+| 字音條目 | 3,648 | 4,594（一字一音一行） |
 | 字頭 | 3,345 | 4,065（含渭南獨有等新增 720 字） |
 | 多音字 | 275 | 223 |
 | 不計調音節 | 392 | 420 |

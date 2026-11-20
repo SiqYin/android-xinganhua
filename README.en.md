@@ -136,7 +136,7 @@ plugin/rime/src/main/cpp/rime-xinganhua/   both schemes (copied from xinganhua-f
 ├── chengqyu.word.dict.yaml                urban readings, 3,648
 ├── nanjiao.schema.yaml                    southern-suburb schema (25 initials incl. rh, 38 finals)
 ├── nanjiao.dict.yaml                      southern main dictionary
-└── nanjiao.word.dict.yaml                 southern readings, 4,534
+└── nanjiao.word.dict.yaml                 southern readings, 4,594
 plugin/rime/src/main/cpp/default.yaml      schema_list starts with chengqyu, nanjiao
 plugin/rime/src/main/cpp/CMakeLists.txt    installs the six files into rime-data
 .github/workflows/build-custom.yml         builds only :app and :plugin:rime, 8 APKs
@@ -165,9 +165,9 @@ android-xinganhua (app + Rime plugin → 8 APKs)
 
 | Item | Count |
 |---|---|
-| Readings | urban 3,648 / southern 4,534 (one reading per line) |
+| Readings | urban 3,648 / southern 4,594 (one reading per line) |
 | Characters | urban 3,345 / southern 4,065 (incl. 720 added characters) |
-| Polyphonic characters | urban 275 / southern 380 |
+| Polyphonic characters | urban 275 / southern 428 |
 | Toneless syllables | urban 392 / southern 420 |
 
 This repository does not change the schemes. If a reading or a spelling looks wrong, edit the dictionaries in [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa), rerun the generation scripts, and copy the new six files over.
