@@ -32,17 +32,17 @@
 
 スマートフォンのこのパッケージも、パソコンの Rime も、二つの Web リポジトリも、すべて同じ**西安方言ピンイン**（城区音・南郊音それぞれ一套）を使います。1 音節は「声母＋韻母＋声調番号」で、たとえば `ba1` 巴、`bfeng4` 中、`jyuen1` 軍：
 
-- **声母**：両系統に共通する 24 個（零声母を含む）＋城区音だけの `bf`・`pf`、計 26 個：`b p m f v bf pf d t n l z c s j q x zh ch sh r g k h ng`
-- **韻母**：共通する 38 個（開 15 ／ 斉 8 ／ 合 9 ／ 撮 6）＋城区音だけの `uu`・`iai`、計 40 個（開 16 ／ 斉 9 ／ 合 9 ／ 撮 6）
+- **声母**：両系統に共通する 24 個（零声母を含む）＋城区音だけの `bf`・`pf`（計 26 個）、南郊音だけの `rh`（計 25 個）：`b p m f v bf pf d t n l z c s rh j q x zh ch sh r g k h ng`
+- **韻母**：共通する 38 個（開 15 ／ 斉 8 ／ 合 9 ／ 撮 6）＋城区音だけの `uu`・`iai`（計 40 個：開 16 ／ 斉 9 ／ 合 9 ／ 撮 6）、南郊音だけの `yua`（計 39 個：開 15 ／ 斉 8 ／ 合 9 ／ 撮 7）
 - **四声**：陰平 21、陽平 24、上声 53、去声 44。入声はすでにこの四声に統合
 - **声調番号は音節の直後**に、空白を入れずに置く：`bfeng4` 中、`jyuen1` 軍
 - **音節の境界は撇号（アポストロフィ）**：`xi'ngan1` 西安（そのまま書くと xin 心 ＋ gan 干 に切られる）
 
 以下の四枚で方案の全体が分かります。ほかの二つのリポジトリと同じ図を言語ごとに用意したもので、内容は各言語版で一致しています：
 
-![西安方言の声母（城区音 26；南郊音は bf・pf なし）](figures/onsets.ja.svg)
+![西安方言の声母（城区音 26；南郊音 25——rh あり、bf・pf なし）](figures/onsets.ja.svg)
 
-![西安方言の韻母（城区音 40；南郊音は uu・iai なし）](figures/rhymes.ja.svg)
+![西安方言の韻母（城区音 40；南郊音 39——yua あり、uu・iai なし）](figures/rhymes.ja.svg)
 
 ![西安方言の四声](figures/tones.ja.svg)
 
@@ -76,7 +76,7 @@ Fcitx5 for Android は入力法の**枠組み**です。キーボード・候補
 
 ### 3.1 ファイルを取る
 
-- **Releases**（推奨）：<https://github.com/SiqYin/android-xinganhua/releases> 。最新版（執筆時点は `v1.0.0`）に APK が 8 個あります：
+- **Releases**（推奨）：<https://github.com/SiqYin/android-xinganhua/releases> 。最新版（執筆時点は `v1.1.0`）に APK が 8 個あります：
   - 本体：`org.fcitx.fcitx5.android-…-<abi>-release.apk`
   - プラグイン：`org.fcitx.fcitx5.android.plugin.rime-…-<abi>-release.apk`
 - **Actions**：`Build Custom APK` ワークフローの成果物では、`fcitx5-android-custom` が本体、`fcitx5-plugins` に Rime プラグインが入っています。
@@ -124,9 +124,9 @@ plugin/rime/src/main/cpp/rime-xinganhua/   二套の方案（xinganhua-fuvufa �
 ├── chengqyu.schema.yaml                   西安方言城区音：字母表、簡拼の演算、逆引き Q/X
 ├── chengqyu.dict.yaml                     城区音の主辞書。import_tables が字音表を指す
 ├── chengqyu.word.dict.yaml                城区音字音表 3,648 件
-├── nanjiao.schema.yaml                    西安方言南郊音（声母 24、韻母 38）
+├── nanjiao.schema.yaml                    西安方言南郊音（声母 25——rh を含む、韻母 39——yua を含む）
 ├── nanjiao.dict.yaml                      南郊音の主辞書
-└── nanjiao.word.dict.yaml                 南郊音字音表 3,578 件
+└── nanjiao.word.dict.yaml                 南郊音字音表 4,176 件
 plugin/rime/src/main/cpp/default.yaml      schema_list の先頭が chengqyu、nanjiao
 plugin/rime/src/main/cpp/CMakeLists.txt    六つのファイルを rime-data へインストール
 .github/workflows/build-custom.yml         :app と :plugin:rime だけをビルドし、APK 8 個を出す
@@ -155,10 +155,10 @@ android-xinganhua（本体＋Rime プラグイン → APK 8 個）
 
 | 項目 | 数 |
 |---|---|
-| 字音項目 | 3,648（一字一音一行） |
-| 字頭 | 3,345 |
-| 多音字 | 275 |
-| 声調なし音節 | 392 |
+| 字音項目 | 城区音 3,648 ／ 南郊音 4,176（一字一音一行） |
+| 字頭 | 城区 3,345 ／ 南郊 3,932（渭南のみ 587 を含む） |
+| 多音字 | 城区 275 ／ 南郊 223 |
+| 声調なし音節 | 城区 392 ／ 南郊 390 |
 
 本リポジトリは方案の中身を変えません。読みや綴りに問題があれば、[xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) の字表を直して生成スクリプトを走らせ、新しい六つのファイルをこちらへ同期してください。
 

@@ -32,17 +32,17 @@
 
 无论是手机上的小企鹅，还是电脑上的 Rime、另外两个仓库，用的都是同一套**西安话拼音**，城区音、南郊音各一套。一个音节写成「声母 + 韵母 + 调号」，例如 `ba1` 巴、`jyuen1` 軍；`bfeng4` 中是城区音，南郊音作 `zuong4`：
 
-- **声母**：两套共用 24 个（含零声母），城区音另有 `bf`、`pf`，共 26 个：`b p m f v bf pf d t n l z c s j q x zh ch sh r g k h ng`
-- **韵母**：两套共用 38 个（开 15 ／ 齐 8 ／ 合 9 ／ 撮 6），城区音另有 `uu`、`iai`，共 40 个（开 16 ／ 齐 9 ／ 合 9 ／ 撮 6）
+- **声母**：两套共用 24 个（含零声母），城区音另有 `bf`、`pf`（共 26），南郊音另有 `rh`（共 25）：`b p m f v bf pf d t n l z c s rh j q x zh ch sh r g k h ng`
+- **韵母**：两套共用 38 个（开 15 ／ 齐 8 ／ 合 9 ／ 撮 6），城区音另有 `uu`、`iai`，共 40 个（开 16 ／ 齐 9 ／ 合 9 ／ 撮 6）；南郊音另有 `yua`，共 39 个（开 15 ／ 齐 8 ／ 合 9 ／ 撮 7）
 - **四声**：阴平 21、阳平 24、上声 53、去声 44；入声已并入四调
 - **调号紧贴音节**，不空格：`bfeng4` 中、`jyuen1` 軍
 - **音节边界用撇号**：`xi'ngan1` 西安（否则会被切成 xin 心 + gan 干）
 
 下面四张图把方案讲全（与其他两个仓库用的是同一套图，各语言版本内容一致）：
 
-![西安话声母（城区音 26；南郊音无 bf、pf）](figures/onsets.hans.svg)
+![西安话声母（城区音 26；南郊音 25——多 rh，无 bf、pf）](figures/onsets.hans.svg)
 
-![西安话韵母（城区音 40；南郊音无 uu、iai）](figures/rhymes.hans.svg)
+![西安话韵母（城区音 40；南郊音 39——多 yua，无 uu、iai）](figures/rhymes.hans.svg)
 
 ![西安话四声](figures/tones.hans.svg)
 
@@ -76,7 +76,7 @@
 
 ### 3.1 取包
 
-- **Releases**（推荐）：<https://github.com/SiqYin/android-xinganhua/releases> ，最新版（写作时为 `v1.0.0`）共 8 个 APK：
+- **Releases**（推荐）：<https://github.com/SiqYin/android-xinganhua/releases> ，最新版（写作时为 `v1.1.0`）共 8 个 APK：
   - 本体：`org.fcitx.fcitx5.android-…-<abi>-release.apk`
   - 插件：`org.fcitx.fcitx5.android.plugin.rime-…-<abi>-release.apk`
 - **Actions**：`Build Custom APK` 工作流的产物里，`fcitx5-android-custom` 是本体，`fcitx5-plugins` 里是 Rime 插件。
@@ -124,9 +124,9 @@ plugin/rime/src/main/cpp/rime-xinganhua/   两套方案（拷贝自 xinganhua-fu
 ├── chengqyu.schema.yaml                   西安话城区音：字母表、简拼演算、反查 Q/X
 ├── chengqyu.dict.yaml                     城区音主词典，import_tables 指向字音表
 ├── chengqyu.word.dict.yaml                城区音字音表 3,648 条
-├── nanjiao.schema.yaml                    西安话南郊音（声母 24、韵母 38）
+├── nanjiao.schema.yaml                    西安话南郊音（声母 25 含 rh、韵母 39 含 yua）
 ├── nanjiao.dict.yaml                      南郊音主词典
-└── nanjiao.word.dict.yaml                 南郊音字音表 3,578 条
+└── nanjiao.word.dict.yaml                 南郊音字音表 4,176 条
 plugin/rime/src/main/cpp/default.yaml      schema_list 前两项 = chengqyu、nanjiao
 plugin/rime/src/main/cpp/CMakeLists.txt    三个文件安装到 rime-data
 .github/workflows/build-custom.yml         只构建 :app 与 :plugin:rime，出 8 个 APK
@@ -153,12 +153,12 @@ xinganhua-fuvufa（方案、字表、说明）
 android-xinganhua（本体 + Rime 插件 → 8 个 APK）
 ```
 
-| 项 | 数 |
-|---|---|
-| 字音条目 | 3,648（一字一音一行） |
-| 字头 | 3,345 |
-| 多音字 | 275 |
-| 不计调音节 | 392 |
+| 项 | 城区音 | 南郊音 |
+|---|---|---|
+| 字音条目 | 3,648 | 4,176（一字一音一行） |
+| 字头 | 3,345 | 3,932（含仅渭南有 587） |
+| 多音字 | 275 | 223 |
+| 不计调音节 | 392 | 390 |
 
 本仓库不改方案内容：发现读音或拼写有问题，请改 [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) 的字表（城区音 `data/source.tsv`、南郊音字表）后重跑生成脚本，再把新的六个文件同步过来。
 
