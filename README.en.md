@@ -127,7 +127,7 @@ plugin/rime/src/main/cpp/rime-xinganhua/   both schemes (copied from xinganhua-f
 ├── chengqyu.word.dict.yaml                urban readings, 3,648
 ├── nanjiao.schema.yaml                    southern-suburb schema (25 initials incl. rh, 38 finals)
 ├── nanjiao.dict.yaml                      southern main dictionary
-└── nanjiao.word.dict.yaml                 southern readings, 4,175
+└── nanjiao.word.dict.yaml                 southern readings, 4,350
 plugin/rime/src/main/cpp/default.yaml      schema_list starts with chengqyu, nanjiao
 plugin/rime/src/main/cpp/CMakeLists.txt    installs the six files into rime-data
 .github/workflows/build-custom.yml         builds only :app and :plugin:rime, 8 APKs
@@ -156,8 +156,8 @@ android-xinganhua (app + Rime plugin → 8 APKs)
 
 | Item | Count |
 |---|---|
-| Readings | urban 3,648 / southern 4,175 (one reading per line) |
-| Characters | urban 3,345 / southern 3,931 (incl. 586 southern-only) |
+| Readings | urban 3,648 / southern 4,350 (one reading per line) |
+| Characters | urban 3,345 / southern 4,065 (incl. 720 added characters) |
 | Polyphonic characters | urban 275 / southern 223 |
 | Toneless syllables | urban 392 / southern 389 |
 
