@@ -43,6 +43,20 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v5
 
+      # APK 版本名取自方案词典的 version（唯一事实源），不再依赖 git describe——
+      # 「构建绿了才打 tag」的纪律下 describe 必然落后一个版本（v1.1.4 的 APK 曾显示 v1.1.3-1）
+      - name: Set BUILD_VERSION_NAME from scheme version
+        shell: bash
+        run: |
+          V=$(grep -m1 -oP '^version: "\K[0-9]+(\.[0-9]+)*' \
+            plugin/rime/src/main/cpp/rime-xinganhua/nanjiao.word.dict.yaml)
+          if [ -z "$V" ]; then
+            echo "::error::读不到方案版本（nanjiao.word.dict.yaml version）"
+            exit 1
+          fi
+          echo "BUILD_VERSION_NAME=v$V" >> "$GITHUB_ENV"
+          echo "APK 版本名设为 v$V"
+
       # 固定签名：本体与 Rime 插件共用同一把钥匙，避免签名不一致导致插件装不上/识别不到
       - name: Build Release APK
         shell: bash
