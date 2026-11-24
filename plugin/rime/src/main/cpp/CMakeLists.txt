@@ -61,7 +61,8 @@ install(FILES
 # xinganhua (西安话·关中片) scheme files
 # 城区音 chengqyu、南郊音 nanjiao 两套方案，各三个文件：
 # schema + 主词典（import_tables 指向字音表）+ 字音表
-# 反查依赖 luna_pinyin / stroke，两个上游方案已经随插件装好，无需另外加。
+# 普通話反查只依赖 luna_pinyin（已随插件装好）；笔画反查已撤除（x 是西安话的正式声母），
+# 不再需要 table_translator@stroke。stroke 方案本身仍随插件提供，供独立使用。
 install(FILES
         "rime-xinganhua/chengqyu.schema.yaml"
         "rime-xinganhua/chengqyu.dict.yaml"

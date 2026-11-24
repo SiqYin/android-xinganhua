@@ -121,7 +121,7 @@ Settings → Languages & input → On-screen keyboard / Manage keyboards → tur
 | No 「中州韵」 in the input-method list | The plugin is missing, or you installed a different ABI — install the Rime plugin for the same ABI |
 | Rime is there but no 「西安話城區音」 | You never tapped Deploy, or it failed — deploy again in the Rime settings |
 | English works, Chinese does not | The keyboard is not on Rime (check the schema name next to the space bar) |
-| Reverse lookup (`q` + Mandarin pinyin, `x` + strokes) is missing | `luna_pinyin` / `stroke` did not come with the plugin — reinstall the same version of the Rime plugin |
+| Reverse lookup (`` ` `` + Mandarin pinyin) is missing | `luna_pinyin` did not come with the plugin — reinstall the same version of the Rime plugin |
 
 ---
 
@@ -131,7 +131,7 @@ Settings → Languages & input → On-screen keyboard / Manage keyboards → tur
 
 ```
 plugin/rime/src/main/cpp/rime-xinganhua/   both schemes (copied from xinganhua-fuvufa)
-├── chengqyu.schema.yaml                   urban schema: alphabet, abbreviation algebra, Q/X reverse lookup
+├── chengqyu.schema.yaml                   urban schema: alphabet, abbreviation algebra, backtick reverse lookup
 ├── chengqyu.dict.yaml                     urban main dictionary, import_tables points at the character table
 ├── chengqyu.word.dict.yaml                urban readings, 3,648
 ├── nanjiao.schema.yaml                    southern-suburb schema (25 initials incl. rh, 38 finals)
@@ -143,7 +143,7 @@ plugin/rime/src/main/cpp/CMakeLists.txt    installs the six files into rime-data
 ```
 
 - The schemes are **copied in**, not a submodule. When the scheme repository changes, the six files must be re-synced and the APKs rebuilt — the two do not track each other automatically.
-- Reverse lookup relies on `luna_pinyin` (Mandarin) and `stroke` (stroke input), both of which the Rime plugin already installs, so the schema does not need to bundle them.
+- Reverse lookup relies only on `luna_pinyin` (Mandarin), which the Rime plugin already installs, so the schema does not need to bundle it. Stroke lookup has been removed, since `x` is a real Xi'an initial.
 - CI publishes only two packages: the app and the Rime plugin. Other plugins (bopomofo, Jyutping, Japanese, Korean…) are not packaged, so the download stays the same size as upstream.
 - App and plugin are both signed with `SIGN_KEY_BASE64` / `SIGN_KEY_PWD` / `SIGN_KEY_ALIAS`; if one is missing the CI fails on purpose, rather than shipping packages that cannot be installed together.
 

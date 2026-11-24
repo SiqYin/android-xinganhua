@@ -121,7 +121,7 @@ ABI 怎么选：现在的手机基本都选 **`arm64-v8a`**；很老的 32 位�
 | 输入法列表里没有「中州韵」 | 插件没装，或装成了另一个 ABI；补装同 ABI 的 Rime 插件 |
 | 有「中州韵」但没有「西安話」 | 没点「部署」，或部署失败；进 Rime 设置重新部署一次 |
 | 能打英文，中文出不来 | 键盘上的输入法没切到 Rime（看空格键旁的方案名） |
-| 反查（`q` + 普通话拼音、`x` + 笔画）不可用 | `luna_pinyin` / `stroke` 没随插件装上；重装同版本的 Rime 插件 |
+| 反查（`` ` `` + 普通话拼音）不可用 | `luna_pinyin` 没随插件装上；重装同版本的 Rime 插件 |
 
 ---
 
@@ -131,7 +131,7 @@ ABI 怎么选：现在的手机基本都选 **`arm64-v8a`**；很老的 32 位�
 
 ```
 plugin/rime/src/main/cpp/rime-xinganhua/   两套方案（拷贝自 xinganhua-fuvufa）
-├── chengqyu.schema.yaml                   西安话城区音：字母表、简拼演算、反查 Q/X
+├── chengqyu.schema.yaml                   西安话城区音：字母表、简拼演算、反查 ` 起头
 ├── chengqyu.dict.yaml                     城区音主词典，import_tables 指向字音表
 ├── chengqyu.word.dict.yaml                城区音字音表 3,648 条
 ├── nanjiao.schema.yaml                    西安话南郊音（声母 25 含 rh、韵母 38）
@@ -143,7 +143,7 @@ plugin/rime/src/main/cpp/CMakeLists.txt    三个文件安装到 rime-data
 ```
 
 - 方案是**拷贝**进来的，不是 submodule。方案仓库更新后，要重新同步这六个文件再出包，两边不会自动跟。
-- 反查依赖 `luna_pinyin`（普通话）与 `stroke`（笔画），这两个上游方案本来就随 Rime 插件装好，所以方案里不用再带。
+- 反查只依赖 `luna_pinyin`（普通话），它本来就在随插件的方案列表里，所以方案里不用再带。笔画反查已撤除（`x` 是西安话拼音的正式声母）。
 - CI 只出两类包：本体和 Rime 插件。其它插件（注音、粤拼、日文、韩文……）不打包，包体和上游一致，不会因为多带插件而变大。
 - 本体与插件都用 `SIGN_KEY_BASE64` / `SIGN_KEY_PWD` / `SIGN_KEY_ALIAS` 这三项 secrets 签名；缺一项，CI 直接失败，避免发出装不上的包。
 
