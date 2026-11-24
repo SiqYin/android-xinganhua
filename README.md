@@ -176,7 +176,9 @@ android-xinganhua（本体 + Rime 插件 → 8 个 APK）
 
 [小鸢输入法 Iris Keyboard](https://github.com/SiqYin/fcitx5-iris)（`SiqYin/fcitx5-iris`）把本体与 Rime 插件打成一个 APK，
 内置西安话城区音/南郊音与吴语两方案共四套方案，词库在构建机上预编译，装完即用、无需手动部署。
-本仓库照常维护，两边的方案文件保持同步。
+**今后请直接下载安装小鸢输入法**：本仓库的维护已转入
+[小鸢输入法](https://github.com/SiqYin/fcitx5-iris)（`SiqYin/fcitx5-iris`），那里提供吴语版（默认吴语混合腔）
+与西安话版（默认西安话南郊音）两个安装包，两者都内置全部四个方案，装完即用。本仓库保留作历史版本，不再更新。
 
 ---
 
