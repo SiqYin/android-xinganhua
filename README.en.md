@@ -10,7 +10,7 @@
 - **Package name**: `org.fcitx.fcitx5.android` (same as the official app, different signature — uninstall the official one first)
 - **Scheme source**: [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) (read-only reference; this repository does not change the scheme)
 - **Four languages**: Simplified Chinese / Traditional Chinese / English / 日本語 — switch with the links above; all four say the same thing, and the Simplified version is authoritative
-- **All-in-one build**: [Iris Keyboard](https://github.com/SiqYin/fcitx5-iris) (`SiqYin/fcitx5-iris`) packs the app and the Rime plugin into a single APK with both Xi'an schemes plus both Wu schemes, dictionaries precompiled — install and type; this repository keeps being maintained
+- **All-in-one build**: [Iris Keyboard](https://github.com/SiqYin/fcitx5-iris) (`SiqYin/fcitx5-iris`) packs the app and the Rime plugin into a single APK with both Xi'an schemes plus both Wu schemes, dictionaries precompiled — install and type. **Please install Iris Keyboard from now on**: maintenance of this repository has moved there, which ships two installers — the Wu edition (defaults to the Wu mixed-accent scheme) and the Xi'an edition (defaults to the southern-suburb Xi'an scheme) — both containing all four schemes. This repository is kept for historical versions and is no longer updated
 
 ---
 
