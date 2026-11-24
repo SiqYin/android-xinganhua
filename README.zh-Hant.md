@@ -10,7 +10,7 @@
 - **包名**：`org.fcitx.fcitx5.android`（與官方版相同、簽名不同；裝前先卸掉官方版）
 - **方案源庫**：[xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa)（只讀引用，本倉庫不改方案內容）
 - **四種語言**：簡體 / 繁體 / English / 日本語，頂部的鏈接可直接切換；四版內容一致，以簡體版爲準
-- **一體包**：[小鳶輸入法 Iris Keyboard](https://github.com/SiqYin/fcitx5-iris)（`SiqYin/fcitx5-iris`）把本體與 Rime 插件合成一個 APK，內置西安話兩套與吳語兩套共四套方案，詞庫預先編譯、裝完即用；本倉庫照常維護
+- **一體包**：[小鳶輸入法 Iris Keyboard](https://github.com/SiqYin/fcitx5-iris)（`SiqYin/fcitx5-iris`）把本體與 Rime 插件合成一個 APK，內置西安話兩套與吳語兩套共四套方案，詞庫預先編譯、裝完即用。**今後請直接下載安裝小鳶輸入法**：本倉庫的維護已轉入該庫，那裏提供吳語版（默認吳語混合腔）與西安話版（默認西安話南郊音）兩個安裝包，兩者都內置全部四個方案。本倉庫保留作歷史版本，不再更新
 
 ---
 
