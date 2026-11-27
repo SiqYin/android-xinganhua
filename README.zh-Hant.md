@@ -77,7 +77,7 @@
 
 ### 3.1 獲取安裝包
 
-- **Releases**（推薦）：<https://github.com/SiqYin/android-xinganhua/releases> ，新版（如 `v1.1.12`）附帶 8 個 APK：
+- **Releases**（推薦）：<https://github.com/SiqYin/android-xinganhua/releases> ，新版（如 `v1.1.13`）附帶 8 個 APK：
   - 本體：`org.fcitx.fcitx5.android-…-<abi>-release.apk`
   - 插件：`org.fcitx.fcitx5.android.plugin.rime-…-<abi>-release.apk`
 - **Actions**：`Build Custom APK` 產物中的 `fcitx5-android-custom` 爲本體、`fcitx5-plugins` 內爲 Rime 插件。
@@ -117,7 +117,7 @@ plugin/rime/src/main/cpp/rime-xinganhua/   兩套西安話方案（同步自 xin
 ├── chengqyu.word.dict.yaml                城區音字音表（3,649 條）
 ├── nanjiao.schema.yaml                    南郊音方案（25 聲母、37 韻母）
 ├── nanjiao.dict.yaml                      南郊音主詞典
-└── nanjiao.word.dict.yaml                 南郊音字音表（4,594 條）
+└── nanjiao.word.dict.yaml                 南郊音字音表（4,596 條）
 plugin/rime/src/main/cpp/default.yaml      schema_list 置頂 chengqyu、nanjiao
 plugin/rime/src/main/cpp/CMakeLists.txt    將方案與詞典安裝進 rime-data
 .github/workflows/build-custom.yml         構建 :app 與 :plugin:rime，生成 8 APK
@@ -143,10 +143,10 @@ android-xinganhua（本體 + Rime 插件 → 8 個 APK）
 
 | 項 | 城區音 | 南郊音 |
 |---|---|---|
-| 字音條目 | 3,649 | 4,594（一字一音一行） |
+| 字音條目 | 3,649 | 4,596（一字一音一行） |
 | 字頭 | 3,346 | 4,065（含增補 720 字） |
 | 多音字 | 275 | 428（不含變體 256） |
-| 不計調音節 | 392 | 420 |
+| 不計調音節 | 392 | 421 |
 
 字音修訂均在 [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) 完成，之後再把六個 `.yaml` 同步到本倉重新打包。
 

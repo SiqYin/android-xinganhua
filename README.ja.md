@@ -74,7 +74,7 @@ Android 版・PC 版 Rime・Web 字音検索サイトはいずれも共通の**�
 
 ### 3.1 APK の取得
 
-[Releases](https://github.com/SiqYin/android-xinganhua/releases)（例：`v1.1.12`、計 8 APK）または `Build Custom APK` の成果物から取得します：
+[Releases](https://github.com/SiqYin/android-xinganhua/releases)（例：`v1.1.13`、計 8 APK）または `Build Custom APK` の成果物から取得します：
 
 - 本体：`org.fcitx.fcitx5.android-…-<abi>-release.apk`
 - プラグイン：`org.fcitx.fcitx5.android.plugin.rime-…-<abi>-release.apk`
@@ -114,7 +114,7 @@ plugin/rime/src/main/cpp/rime-xinganhua/   xinganhua-fuvufa から同期した 6
 ├── chengqyu.word.dict.yaml                城区音単字表（3,649 件）
 ├── nanjiao.schema.yaml                    南郊音スキーマ（25 声母・37 韻母）
 ├── nanjiao.dict.yaml                      南郊音メイン辞書
-└── nanjiao.word.dict.yaml                 南郊音単字表（4,594 件）
+└── nanjiao.word.dict.yaml                 南郊音単字表（4,596 件）
 plugin/rime/src/main/cpp/default.yaml      chengqyu / nanjiao を先頭に配置
 plugin/rime/src/main/cpp/CMakeLists.txt    rime-data へのインストール設定
 .github/workflows/build-custom.yml         :app と :plugin:rime の 8 APK をビルド
@@ -140,10 +140,10 @@ android-xinganhua（本体 + Rime プラグイン → 8 APK）
 
 | 項目 | 城区音（`chengqyu`） | 南郊音（`nanjiao`） |
 |---|---|---|
-| 収録件数 | 3,649 | 4,594 |
+| 収録件数 | 3,649 | 4,596 |
 | 見出し字 | 3,346 | 4,065（追加 720 字を含む） |
 | 多音字 | 275 | 428（変体除き 256） |
-| 声調別除く音節数 | 392 | 420 |
+| 声調別除く音節数 | 392 | 421 |
 
 字音の修正はすべて [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) 側で行い、更新後に 6 つの `.yaml` を本リポジトリへ反映します。
 

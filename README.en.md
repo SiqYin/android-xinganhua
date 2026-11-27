@@ -74,7 +74,7 @@ This repository keeps upstream Fcitx5 for Android intact and focuses on three pa
 
 ### 3.1 Artifacts
 
-Download from [Releases](https://github.com/SiqYin/android-xinganhua/releases) (e.g. `v1.1.12`, 8 APKs total) or `Build Custom APK` workflow artifacts:
+Download from [Releases](https://github.com/SiqYin/android-xinganhua/releases) (e.g. `v1.1.13`, 8 APKs total) or `Build Custom APK` workflow artifacts:
 
 - App: `org.fcitx.fcitx5.android-…-<abi>-release.apk`
 - Plugin: `org.fcitx.fcitx5.android.plugin.rime-…-<abi>-release.apk`
@@ -114,7 +114,7 @@ plugin/rime/src/main/cpp/rime-xinganhua/   bundled schemas synced from xinganhua
 ├── chengqyu.word.dict.yaml                urban readings (3,649)
 ├── nanjiao.schema.yaml                    southern schema (25 initials, 37 finals)
 ├── nanjiao.dict.yaml                      southern main dictionary
-└── nanjiao.word.dict.yaml                 southern readings (4,594)
+└── nanjiao.word.dict.yaml                 southern readings (4,596)
 plugin/rime/src/main/cpp/default.yaml      schema_list puts chengqyu and nanjiao first
 plugin/rime/src/main/cpp/CMakeLists.txt    installs the six files into rime-data
 .github/workflows/build-custom.yml         builds :app and :plugin:rime (8 APKs)
@@ -140,10 +140,10 @@ android-xinganhua (app + Rime plugin → 8 APKs)
 
 | Metric | Urban (`chengqyu`) | Southern (`nanjiao`) |
 |---|---|---|
-| Readings | 3,649 | 4,594 |
+| Readings | 3,649 | 4,596 |
 | Characters | 3,346 | 4,065 (incl. 720 added) |
 | Polyphonic characters | 275 | 428 (256 excl. variants) |
-| Toneless syllables | 392 | 420 |
+| Toneless syllables | 392 | 421 |
 
 Edits to readings always happen first in [xinganhua-fuvufa](https://github.com/SiqYin/xinganhua-fuvufa) and are then copied here.
 
