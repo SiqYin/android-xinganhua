@@ -34,7 +34,7 @@ The Android build, desktop Rime config, and web lookup site share one **Xi'an pi
 - **Initials**: 24 shared (including zero initial), plus urban `bf`, `pf` (26 total) and southern `rh` (25 total): `b p m bf pf f v` / `d t n l` / `g k h ng` / `j q x` / `zh ch sh r` / `z c s rh` (`n` shifts to `[ȵ]` before `i`/`y`).
 - **Finals**: 39 in urban Xi'an (14 open / 10 `i`-medial / 9 `u`-medial / 6 `ü`-medial, incl. `uu`, `iae`, `uong`), and 37 in the south (13 / 9 / 9 / 6; no `uu`/`iae`, spelling `uong` directly as `ung`).
 - **Tones**: Yinping 31, Yangping 24, Shangsheng 53, Qusheng 55 (historical entering tone merged into these four); digits are optional when typing.
-- **Apostrophe & shortcuts**: `'` separates ambiguous boundaries (`xi'ngan1` 西安). Both varieties share `in / iu / o / ui / un` (after an initial consonant) and `yo / yun` (incl. zero initial); for `uong → ung`, urban Xi'an pinyin can be simplified this way, whereas `ung` is already the original spelling in the southern suburb.
+- **Apostrophe & shortcuts**: `'` separates ambiguous boundaries (`xi'ngan1` 西安). Both varieties share `in / iu / o / ui / un` (after an initial consonant) plus `o` for `yuo` after `j q x` (`jo / qo / xo`), `yo` for zero-initial or `n`+`yuo`, and `yun`; for `uong → ung`, urban Xi'an pinyin can be simplified this way, whereas `ung` is already the original spelling in the southern suburb.
 
 ![Xi'an initials (urban 26; southern 25)](figures/onsets.en.svg)
 
@@ -74,7 +74,7 @@ This repository keeps upstream Fcitx5 for Android intact and focuses on three pa
 
 ### 3.1 Artifacts
 
-Download from [Releases](https://github.com/SiqYin/android-xinganhua/releases) (e.g. `v1.1.11`, 8 APKs total) or `Build Custom APK` workflow artifacts:
+Download from [Releases](https://github.com/SiqYin/android-xinganhua/releases) (e.g. `v1.1.12`, 8 APKs total) or `Build Custom APK` workflow artifacts:
 
 - App: `org.fcitx.fcitx5.android-…-<abi>-release.apk`
 - Plugin: `org.fcitx.fcitx5.android.plugin.rime-…-<abi>-release.apk`

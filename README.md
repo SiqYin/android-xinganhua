@@ -35,7 +35,7 @@
 - **韵母**：城区音 39 个（开 14 ／ 齐 10 ／ 合 9 ／ 撮 6，含 `uu`、`iae`、`uong`），南郊音 37 个（开 13 ／ 齐 9 ／ 合 9 ／ 撮 6，无 `uu`、`iae`，合口鼻尾韵直接拼作 `ung`）。
 - **四声**：阴平 31、阳平 24、上声 53、去声 55，古入声已并入四调；调号紧贴音节末尾，打字时可省略。
 - **隔音撇号**：音节连写易误切处用 `'` 隔开（如 `xi'ngan1` 西安）。
-- **输入简拼**：两支共用的 7 条规则为 `in / iu / o / ui / un`（限前有辅音声母，对应 `ien / iou / uo / uei / uen`）与 `yo / yun`（含零声母，对应 `yuo / yuen`）；至于 `uong → ung`，**城区音中拼音可以这样简化，南郊音本来的拼写就是后者（`ung`）**。
+- **输入简拼**：两支共用的规则为 `in / iu / o / ui / un`（限前有辅音声母，对应 `ien / iou / uo / uei / uen`）、`o`（`j q x` 后的 `yuo`：`jo / qo / xo`）、`yo`（零声母与 `n` 后的 `yuo`）与 `yun`（对应 `yuen`）；至于 `uong → ung`，**城区音中拼音可以这样简化，南郊音本来的拼写就是后者（`ung`）**。
 
 下面六张图展示完整音系与拼写规则：
 
@@ -49,7 +49,7 @@
 
 ![音节结构：声母 + 韵母 + 调号](figures/syllable.hans.svg)
 
-![西安话简拼对照图（城区 8 条 · 南郊 7 条）](figures/abbrev.hans.svg)
+![西安话简拼对照图（城区 9 条 · 南郊 8 条）](figures/abbrev.hans.svg)
 
 ![南郊音的变体](figures/variant.hans.svg)
 
@@ -77,7 +77,7 @@
 
 ### 3.1 获取安装包
 
-- **Releases**（推荐）：<https://github.com/SiqYin/android-xinganhua/releases> ，新版（如 `v1.1.11`）附带 8 个 APK：
+- **Releases**（推荐）：<https://github.com/SiqYin/android-xinganhua/releases> ，新版（如 `v1.1.12`）附带 8 个 APK：
   - 本体：`org.fcitx.fcitx5.android-…-<abi>-release.apk`
   - 插件：`org.fcitx.fcitx5.android.plugin.rime-…-<abi>-release.apk`
 - **Actions**：`Build Custom APK` 产物中的 `fcitx5-android-custom` 为本体、`fcitx5-plugins` 内为 Rime 插件。

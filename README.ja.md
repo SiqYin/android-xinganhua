@@ -34,7 +34,7 @@ Android 版・PC 版 Rime・Web 字音検索サイトはいずれも共通の**�
 - **声母**：共通 24（零声母を含む）に加え、城区音のみ `bf`・`pf`（26）、南郊音のみ `rh`（25）。配列は `b p m bf pf f v` / `d t n l` / `g k h ng` / `j q x` / `zh ch sh r` / `z c s rh`（`n` は `i`・`y` 細音前で `[ȵ]`）。
 - **韻母**：城区音 39（開 14・斉 10・合 9・撮 6、`uu`・`iae`・`uong` を含む）、南郊音 37（開 13・斉 9・合 9・撮 6、`uu`・`iae` がなく、合口鼻尾韻は本来通り `ung`）。
 - **四声**：陰平 31・陽平 24・上声 53・去声 55（旧入声は四声に合流）。入力時の調号は省略可能です。
-- **区切りと簡拼**：誤分割を防ぐ箇所に `'` を置きます（`xi'ngan1` 西安）。共通の簡拼は子音後の `in / iu / o / ui / un` と零声母を含む `yo / yun` の 7 種で、`uong → ung` については城区音ではこのように簡略化できますが、南郊音は本来の綴りそのものが `ung` です。
+- **区切りと簡拼**：誤分割を防ぐ箇所に `'` を置きます（`xi'ngan1` 西安）。共通の簡拼は子音後の `in / iu / o / ui / un` 、`j q x` の後の `yuo` を略した `o`（`jo / qo / xo`）、零声母と `n` の後の `yuo` を略した `yo`、および `yun` で、`uong → ung` については城区音ではこのように簡略化できますが、南郊音は本来の綴りそのものが `ung` です。
 
 ![西安方言の声母](figures/onsets.ja.svg)
 
@@ -74,7 +74,7 @@ Android 版・PC 版 Rime・Web 字音検索サイトはいずれも共通の**�
 
 ### 3.1 APK の取得
 
-[Releases](https://github.com/SiqYin/android-xinganhua/releases)（例：`v1.1.11`、計 8 APK）または `Build Custom APK` の成果物から取得します：
+[Releases](https://github.com/SiqYin/android-xinganhua/releases)（例：`v1.1.12`、計 8 APK）または `Build Custom APK` の成果物から取得します：
 
 - 本体：`org.fcitx.fcitx5.android-…-<abi>-release.apk`
 - プラグイン：`org.fcitx.fcitx5.android.plugin.rime-…-<abi>-release.apk`
