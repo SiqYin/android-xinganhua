@@ -29,12 +29,12 @@
 
 ## 1. The Xi'an pinyin scheme
 
-The Android build, desktop Rime config, and web lookup site all share one **Xi'an pinyin** system covering urban and southern-suburb Xi'an (`ba1` 巴, `jyuen1` 軍; 中 is `bfeng4` in urban speech and `zuong4` in the south):
+The Android build, desktop Rime config, and web lookup site share one **Xi'an pinyin** system covering urban and southern-suburb Xi'an (`ba1` 巴, `jyuen1` 軍; 中 is `bfeng4` in urban speech and `zung4` in the south):
 
 - **Initials**: 24 shared (including zero initial), plus urban `bf`, `pf` (26 total) and southern `rh` (25 total): `b p m bf pf f v` / `d t n l` / `g k h ng` / `j q x` / `zh ch sh r` / `z c s rh` (`n` shifts to `[ȵ]` before `i`/`y`).
-- **Finals**: 37 shared (13 open / 9 `i`-medial / 9 `u`-medial / 6 `ü`-medial), plus urban `uu`, `iae` — 39 total (14 / 10 / 9 / 6).
+- **Finals**: 39 in urban Xi'an (14 open / 10 `i`-medial / 9 `u`-medial / 6 `ü`-medial, incl. `uu`, `iae`, `uong`), and 37 in the south (13 / 9 / 9 / 6; no `uu`/`iae`, spelling `uong` directly as `ung`).
 - **Tones**: Yinping 31, Yangping 24, Shangsheng 53, Qusheng 55 (historical entering tone merged into these four); digits are optional when typing.
-- **Apostrophe & shortcuts**: `'` separates ambiguous boundaries (`xi'ngan1` 西安). Eight input abbreviations are active: `in / iu / o / ui / un / ung` after a consonant initial (`ien / iou / uo / uei / uen / uong`), plus `yo / yun` including the zero initial (`yuo / yuen`).
+- **Apostrophe & shortcuts**: `'` separates ambiguous boundaries (`xi'ngan1` 西安). Both varieties share `in / iu / o / ui / un` (after an initial consonant) and `yo / yun` (incl. zero initial); for `uong → ung`, urban Xi'an pinyin can be simplified this way, whereas `ung` is already the original spelling in the southern suburb.
 
 ![Xi'an initials (urban 26; southern 25)](figures/onsets.en.svg)
 
